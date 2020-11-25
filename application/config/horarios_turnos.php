@@ -1,0 +1,1 @@
+<?php if(!defined('BASEPATH')) exit('No direct script access allowed');$config['hora_desde'] = '9:00:00';$config['hora_hasta'] = '20:00:00';$config['tiempo_turno'] = '0:15:00';$config['usuario_ultimo_cambio'] = 'administrador';$config['fecha_ultimo_cambio'] = '2017-02-25';

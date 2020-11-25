@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 09/08/2016, 12:57:35
+    Author     : mario
+*/
+
+#cotizador_neumatico h1{
+    margin-bottom: 5%;
+    color: #F00;
+}
+
+#cotizador_neumatico #contenedor{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+
+
+
+
