@@ -1,4 +1,7 @@
 <?php
+define('PATH_ONEPAGE','assets/onepage/assets_home');
+define('PATH_LOGIN','assets/login-user/assets_login');
+define('PATH_PANEL','assets/panel-user/assets_user_panel');
 /**
  * CodeIgniter
  *
@@ -53,7 +56,8 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
+	//define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
  *---------------------------------------------------------------
