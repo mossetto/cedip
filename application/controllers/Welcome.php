@@ -37,18 +37,18 @@ class Welcome extends CI_Controller {
 //            echo date('l jS \of F Y h:i:s A');
 	}
     
-	public function index()
-        {
-            $this->template = $this->template->generar_pagina_principal("Cedip Centro Medico Argentina");
-            
-            $template["template"]=$this->template;
-            $template["slider"]= true;
-            $output["output"]=$this->template->generar_inicio();
-            
-            $this->load->view('home/vista_general_cabecera',$template);
-            $this->load->view('home/vista_general_detalle',$output);
-            $this->load->view('home/vista_general_pie',$template);
-//            $this->load->view('home/index');
+	public function index() {
+
+        $this->load->view('index/index');
+
+        //$this->template = $this->template->generar_pagina_principal("Cedip Centro Medico Argentina");
+        //$template["template"]=$this->template;
+        //$template["slider"]= true;
+        //$output["output"]=$this->template->generar_inicio();
+        //$this->load->view('home/vista_general_cabecera',$template);
+        //$this->load->view('home/vista_general_detalle',$output);
+        //$this->load->view('home/vista_general_pie',$template);
+        //$this->load->view('home/index');
             
 	}
         
@@ -176,6 +176,7 @@ class Welcome extends CI_Controller {
         
         public function iniciar_sesion_paciente()
         {
+            //echo "iniciar_sesion_paciente";
             if($this->input->is_ajax_request())
             {
                 $respuesta = false;
