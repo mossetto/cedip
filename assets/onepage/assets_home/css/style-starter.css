@@ -9861,7 +9861,16 @@ h3.title {
   font-size: 16px;
   line-height: 25px;
   font-weight: 700; }
-
+.btn-acceso{
+  background-color: #FF8C00;
+  color: white!important;
+  border-radius: 7px;
+  transition: .5s;
+}
+.btn-acceso:hover{
+  background-color: #ffa536;
+  transition: .5s;
+}
 .w3l-bootstrap-header li.nav-item {
   margin: 0px 6px; }
 
