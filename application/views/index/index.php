@@ -16,6 +16,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?= base_url(PATH_ONEPAGE)?>/css/style-starter.css">
   </head>
   <body>
+  	<a class="wsp-cover" href="https://api.whatsapp.com/send?phone=5493574406322&text=Hola,%20tengo%20una%20consulta" target="_blank">
+  		<img class="wsp-link" src="<?= base_url(PATH_ONEPAGE)?>/images/wsp-icon.png" title="Chatear en WhatsApp">
+	</a>
 <section class="w3l-bootstrap-header">
   <nav class="navbar navbar-expand-md navbar-light py-3">
 	<div class="container">
