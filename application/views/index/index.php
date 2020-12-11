@@ -212,7 +212,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				  <div class="col-lg-8 w3l-features-photo-7_top-left">
 					  <h2>Servicios</h2>
 					  <p class="mb-lg-5 mb-4">Ecografías</p>
-					  <h4>En Cedip contamos nuevas tecnologías para brindar un excelente servicio a nuestros pacientes.</h4>
+					  <h4>En Cedip contamos con nuevas tecnologías para brindar un excelente servicio a nuestros pacientes.</h4>
 					  <p>Estudios de diagnóstico.
 					  </p>
 					  <div class="feat_top">
