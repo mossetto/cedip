@@ -149,10 +149,8 @@ $form = array(
 									</div>
 								</div>
 
-
 								<div class="table-responsive">
-									<table class="table">
-										
+									<table class="table">						
 										<thead>
 											<tr>
 												<th>Fecha</th>
@@ -166,10 +164,15 @@ $form = array(
 											</tr>
 										</thead>
 										<tbody>
+<?php
+	if($historial){
+		foreach($historial as $historial_row){
+?>
+
 											<tr>
-												<td>12/2020</td>
+												<td><?= $historial_row->fecha; ?></td>
 												<td>Secure X2</td>
-												<td>28/12/2020</td>
+												<td><?= $historial_row->especialidad; ?></td>
 												<td>
 													<a class="waves-effect waves-dark" href="#" aria-expanded="false">
 														<i class="mdi mdi-file-pdf"></i>
@@ -181,62 +184,16 @@ $form = array(
 													</a>
 												</td>
 											</tr>
-											<tr>
-												<td>12/2020</td>
-												<td>Secure X2</td>
-												<td>28/12/2020</td>
-												<td>
-													<a class="waves-effect waves-dark" href="#" aria-expanded="false">
-														<i class="mdi mdi-file-pdf"></i>
-														<span class="hide-menu">Informe</span>
-													</a> <br>
-													<a class="waves-effect waves-dark" href="#" aria-expanded="false">
-														<i class="mdi mdi-image"></i>
-														<span class="hide-menu">Imágenes</span>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td>12/2020</td>
-												<td>Secure X2</td>
-												<td>28/12/2020</td>
-												<td>
-													<a class="waves-effect waves-dark" href="#" aria-expanded="false">
-														<i class="mdi mdi-file-pdf"></i>
-														<span class="hide-menu">PDF</span>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td>12/2020</td>
-												<td>Secure X2</td>
-												<td>28/12/2020</td>
-												<td>
-													<a class="waves-effect waves-dark" href="#" aria-expanded="false">
-														<i class="mdi mdi-file-pdf"></i>
-														<span class="hide-menu">Informe</span>
-													</a> <br>
-													<a class="waves-effect waves-dark" href="#" aria-expanded="false">
-														<i class="mdi mdi-image"></i>
-														<span class="hide-menu">Imágenes</span>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td>12/2020</td>
-												<td>Secure X2</td>
-												<td>28/12/2020</td>
-												<td>
-													<a class="waves-effect waves-dark" href="#" aria-expanded="false">
-														<i class="mdi mdi-file-pdf"></i>
-														<span class="hide-menu">Informe</span>
-													</a> <br>
-													<a class="waves-effect waves-dark" href="#" aria-expanded="false">
-														<i class="mdi mdi-image"></i>
-														<span class="hide-menu">Imágenes</span>
-													</a>
-												</td>
-											</tr>
+<?php
+		}
+	}else{
+?>
+								<tr>
+									<td colspan="4"><center><h3>No tiene estudios asociados</h3></center></td>
+								</tr>
+<?php
+	}
+?>
 										</tbody>
 									</table>
 								</div>

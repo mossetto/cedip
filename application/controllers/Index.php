@@ -155,7 +155,7 @@ class Index extends CI_Controller {
 			"ingresado"=>"true"
 		);
 
-		$data['historial'] = $this->Pacientes_model->getHistorialMedicoPaciente($this->session->userdata("dni"));
+		$data['historial'] = $this->Pacientes_model->getHistorialMedicoPaciente($this->session->userdata("iduser"));
 
 		$this->load->view('index/estudios_user',$data);
 	}
