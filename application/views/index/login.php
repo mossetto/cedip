@@ -1,10 +1,34 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+$form = array(
+	'username' => array(
+		'class' => 'input100',
+		'name' => 'username',
+		'placeholder' => 'D.N.I.',
+		'value' => null,
+		'required' => true
+	),
+	'password' => array(
+		'class' => 'input100',
+		'name' => 'password',
+		'placeholder' => 'Tu contraseña',
+		'value' => null,
+		'required' => true
+	)
+);
+
+$form_attributes = array(
+	'role' => 'form',
+	'autocomplete' => 'off',
+	'class' => 'login100-form validate-form* p-l-50 p-r-50 p-t-72 p-b-50'
+);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Cuenta - Seguridad Informática - Sistemas de Seguridad</title>
+	<link rel="shortcut icon" href="<?= base_url(PATH_ONEPAGE)?>/images/favicon.png">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -37,57 +61,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </style>
 </head>
 <body style="background-color: #999999;">
-
-
-
 	<div class="limiter">
 		<div class="container-login100">
-
 			<div class="wrap-login100 ">
 				<div class="wrap-bar">
-					<img src="<?= base_url(PATH_LOGIN)?>/images/logo-blanco.png" alt="">
+					<a href="<?= base_url(); ?>">
+						<img src="<?= base_url(PATH_LOGIN)?>/images/logo-blanco.png" alt="">
+					</a>
 				</div>
 
-				<form class="login100-form validate-form* p-l-50 p-r-50 p-t-72 p-b-50" action="<?= base_url(); ?>index.php/index/user">
+				<?= form_open('',$form_attributes); ?>
 					<span class="login100-form-title p-b-59">
 						Iniciar sesión
 					</span>
-
 					<div class="wrap-input100 validate-input*" data-validate="Revisa este campo">
 						<span class="label-input100">Ingresa tu D.N.I.</span>
-						<input class="input100" type="text" name="name" placeholder="D.N.I.">
+						<?= form_input($form['username']); ?>
 						<span class="focus-input100"></span>
 					</div>
-
-
 					<div class="wrap-input100 validate-input*" data-validate = "Revisa este campo">
 						<span class="label-input100">Contraseña</span>
-						<input class="input100" type="text" name="repeat-pass" placeholder="Tu contraseña">
+						<?= form_input($form['password']); ?>						
 						<span class="focus-input100"></span>
 					</div>
-
 					<div class="flex-m w-full p-b-33">
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-
 						</div>
-
-						
 					</div>
-
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-
 							<button type="submit" class="login100-form-btn">
 								<b>INGRESAR</b>
-							</button>							
-							
+							</button>
 						</div>
+						<!--
+						<a href="#">Olvidé mi contraseña</a>
+						<a href="#">Registrarse</a>
+
 						<a href="<?= base_url(); ?>index.php/index/recuperar">Olvidé mi contraseña</a>
 						<a href="<?= base_url(); ?>index.php/index/registro">Registrarse</a>
+					-->
+
 					</div>
-				</form>
+				<?= form_close(); ?>
 			</div>
 			<div class="login100-more" style="background-image: url('<?= base_url(PATH_LOGIN)?>/images/bg-01.jpg');"></div>
 		</div>
