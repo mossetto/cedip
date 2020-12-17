@@ -37,7 +37,7 @@ $form = array(
 	<meta name="robots" content="noindex,nofollow">
 	<title>Cedip - Centro Médico - Cuenta</title>
 	<link rel="canonical" href="https://www.wrappixel.com/templates/materialpro-lite/" />
-
+	<link rel="shortcut icon" href="<?= base_url(PATH_ONEPAGE)?>/images/favicon.png">
 	<!-- Bootstrap Core CSS -->
 	<link href="<?= base_url(PATH_PANEL)?>/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
