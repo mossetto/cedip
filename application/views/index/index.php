@@ -16,6 +16,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?= base_url(PATH_ONEPAGE)?>/css/style-starter.css">
   </head>
   <body>
+  	<a class="wsp-cover" href="https://api.whatsapp.com/send?phone=5493574406322&text=Hola,%20tengo%20una%20consulta" target="_blank">
+  		<img class="wsp-link" src="<?= base_url(PATH_ONEPAGE)?>/images/wsp-icon.png" title="Chatear en WhatsApp">
+	</a>
 <section class="w3l-bootstrap-header">
   <nav class="navbar navbar-expand-md navbar-light py-3">
 	<div class="container">
@@ -41,8 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<a class="nav-link" href="#contacto">Contacto</a>
 		  </li>
 		  <li class="nav-item">
-			<!--<a class="nav-link" href="#">Acceso</a>-->
-			<a class="nav-link" href="<?= base_url(); ?>index.php/index/login">Acceso</a>
+			<a class="nav-link btn-acceso" href="<?= base_url(); ?>index.php/index/login">Acceso</a>
 		  </li>
 		</ul>
 	  </div>
@@ -88,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				  <a class="nav-link" href="#contacto">Contacto</a>
 				</li>
 				<li class="nav-item">
-				  <a class="nav-link" href="<?= base_url(); ?>index.php/index/login">Acceso</a>
+				  <a class="nav-link btn-acceso" href="#">Acceso</a>
 				</li>
 			  </ul>
 			</nav>
@@ -209,7 +211,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				  <div class="col-lg-8 w3l-features-photo-7_top-left">
 					  <h2>Servicios</h2>
 					  <p class="mb-lg-5 mb-4">Ecografías</p>
-					  <h4>En Cedip contamos nuevas tecnologías para brindar un excelente servicio a nuestros pacientes.</h4>
+					  <h4>En Cedip contamos con nuevas tecnologías para brindar un excelente servicio a nuestros pacientes.</h4>
 					  <p>Estudios de diagnóstico.
 					  </p>
 					  <div class="feat_top">
