@@ -181,11 +181,11 @@ $form_attributes = array(
 												<td><?= $historial_row->nombre . " ". $historial_row->apellido; ?></td>
 												<td><?= $historial_row->especialidad; ?></td>
 												<td>
-													<a class="waves-effect waves-dark" href="<?= $historial_row->codigo; ?>" aria-expanded="false">
+													<a class="waves-effect waves-dark" href="<?= base_url()."index.php/welcome/reporte_historia_clinica/".$historial_row->codigo; ?>" aria-expanded="false" target="_blank">
 														<i class="mdi mdi-file-pdf"></i>
 														<span class="hide-menu">Informe</span>
 													</a> <br>
-													<a class="waves-effect waves-dark" href="<?= $historial_row->codigo; ?>" aria-expanded="false">
+													<a class="waves-effect waves-dark" href="<?= $historial_row->codigo; ?>" aria-expanded="false" target="_blank">
 														<i class="mdi mdi-image"></i>
 														<span class="hide-menu">Imágenes</span>
 													</a>
