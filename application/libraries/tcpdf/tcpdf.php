@@ -3490,6 +3490,13 @@ class TCPDF {
 	 * @public
 	 */
 	public function Footer() {
+		$logoX = 0; // 186mm. The logo will be displayed on the right side close to the border of the page
+		$logoFileName = K_PATH_IMAGES."/footer.jpg";
+		$logoWidth = 220; // 15mm
+		$logo = $this->PageNo() . ' | '. $this->Image($logoFileName, $logoX, $this->GetY()-50, $logoWidth);
+		$this->SetX(0 - 18 - $logoWidth); // documentRightMargin = 18
+		$this->Cell(0,0, $logo, 0, 0, 'C');	
+		/*
 		$cur_y = $this->y;
 		$this->SetTextColorArray($this->footer_text_color);
 		//set style for cell border
@@ -3528,7 +3535,7 @@ class TCPDF {
 		} else {
 			$this->SetX($this->original_lMargin);
 			$this->Cell(0, 0, $this->getAliasRightShift().$pagenumtxt, 'T', 0, 'R');
-		}
+		}*/
 	}
 
 	/**

@@ -452,7 +452,9 @@ class Welcome extends CI_Controller {
 
 				$paciente = $paciente[0]["nombre"]." ".$paciente[0]["apellido"];
 				$direccion = "";
-				$pdf->SetHeaderData(PDF_HEADER_LOGO, 40, null . '', $direccion, array(0, 64, 255), array(0, 64, 128));
+				$pdf->SetHeaderData(PDF_HEADER_LOGO, 120, null . '', $direccion, array(0, 64, 255), array(0, 64, 128));
+				//$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 001', PDF_HEADER_STRING, array(0,64,255), array(0,64,128));
+
 				$pdf->setFooterData($tc = array(0, 64, 0), $lc = array(0, 64, 128));
 				$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 				$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
@@ -478,7 +480,6 @@ class Welcome extends CI_Controller {
 				$pdf->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = '', $autopadding = true);
 				$nombre_archivo = utf8_decode("Localidades de .pdf");
 				$pdf->Output($nombre_archivo, 'I');
-				/**/
 			}
 			else
 			{
