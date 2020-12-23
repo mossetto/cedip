@@ -20,7 +20,27 @@ $form = array(
 		'placeholder' => 'Apellido',
 		'value' => $apellido,
 		'required' => true
-	) 
+	),
+	'fecha1' => array(
+		'type'  => 'date',
+		'aria-label' => 'First name',
+		'class' => 'form-control calendario',
+		'placeholder' => 'dd-mm-yyyy',
+		'name' => 'fecha1',
+		'required' => true
+	),
+	'fecha2' => array(
+		'type'  => 'date',
+		'aria-label' => 'First name',
+		'class' => 'form-control calendario',
+		'placeholder' => 'dd-mm-yyyy',
+		'name' => 'fecha2',
+		'required' => true
+	)
+);
+$form_attributes = array(
+	'role' => 'form',
+	'autocomplete' => 'off'
 );
 ?>
 <!DOCTYPE html>
@@ -36,6 +56,7 @@ $form = array(
 		content="Cuenta - Seguridad Electronica - Sistemas de Seguridad">
 	<meta name="robots" content="noindex,nofollow">
 	<title>Cedip - Centro Médico - Cuenta</title>
+	<link rel="shortcut icon" href="<?= base_url(PATH_ONEPAGE)?>/images/favicon.png">
 	<link rel="canonical" href="https://www.wrappixel.com/templates/materialpro-lite/" />
 
 	<!-- Bootstrap Core CSS -->
@@ -47,41 +68,31 @@ $form = array(
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
-
 	<div class="preloader">
 		<svg class="circular" viewBox="25 25 50 50">
 			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
 	</div>
-
 	<div id="main-wrapper">
-
 		<header class="topbar">
 			<nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
-
 				<div class="navbar-header">
 					<a class="navbar-brand">
-						<!-- Logo icon --><b>
-
+						<!-- Logo icon -->
+						<b>
 							<img src="<?= base_url(PATH_PANEL)?>/images/logo.png" alt="homepage" class="light-logo" />
 						</b>
 						<!--End Logo icon -->
-						<!-- Logo text --><span>
-
+						<!-- Logo text -->
 					</a>
 				</div>
-
 				<div class="navbar-collapse">
-
 					<ul class="navbar-nav mr-auto mt-md-0">
 						<!-- This is  -->
 						<li class="nav-item"> <a
 								class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
 								href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
-
 					</ul>
-
 					<ul class="navbar-nav my-lg-0">
-
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="pages-profile.html"
 								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $form['nombre']['value']." ".$form['apellido']['value']; ?></a>
@@ -131,26 +142,22 @@ $form = array(
 					<!-- column -->
 					<div class="col-lg-12">
 						<div class="card">
-
-
-
 							<div class="card-block">
 								<h4 class="card-title">Descargá desde aquí tus últimos estudios</h4>
-
-
+								<?= form_open('',$form_attributes); ?>
 								<div class="input-group buscar-fecha">
-									<div class="input-group-prepend titulo-buscar-fecha">
-										<span class="input-group-text">Buscar por fecha</span>
-									</div>
-									<input type="date" aria-label="First name" class="form-control calendario">
-									<input type="date" aria-label="First name" class="form-control calendario">
-									<div class="input-group-append boton-buscar-fecha">
-										<button class="btn btn-primary" type="button">Buscar</button>
-									</div>
+										<div class="input-group-prepend titulo-buscar-fecha">
+											<span class="input-group-text">Buscar por fecha</span>
+										</div>
+										<?= form_input($form['fecha1']); ?>
+										<?= form_input($form['fecha2']); ?>
+										<div class="input-group-append boton-buscar-fecha">
+											<button  type="submit" class="btn btn-primary" type="button">Buscar</button>
+										</div>
 								</div>
-
+								<?= form_close(); ?>
 								<div class="table-responsive">
-									<table class="table">						
+									<table class="table">
 										<thead>
 											<tr>
 												<th>Fecha</th>
@@ -171,14 +178,14 @@ $form = array(
 
 											<tr>
 												<td><?= $historial_row->fecha; ?></td>
-												<td>Secure X2</td>
+												<td><?= $historial_row->nombre . " ". $historial_row->apellido; ?></td>
 												<td><?= $historial_row->especialidad; ?></td>
 												<td>
-													<a class="waves-effect waves-dark" href="#" aria-expanded="false">
+													<a class="waves-effect waves-dark" href="<?= $historial_row->codigo; ?>" aria-expanded="false">
 														<i class="mdi mdi-file-pdf"></i>
 														<span class="hide-menu">Informe</span>
 													</a> <br>
-													<a class="waves-effect waves-dark" href="#" aria-expanded="false">
+													<a class="waves-effect waves-dark" href="<?= $historial_row->codigo; ?>" aria-expanded="false">
 														<i class="mdi mdi-image"></i>
 														<span class="hide-menu">Imágenes</span>
 													</a>

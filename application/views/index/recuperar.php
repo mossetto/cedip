@@ -1,10 +1,34 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+$form = array(
+	'dni' => array(
+		'class' => 'input100',
+		'name' => 'dni',
+		'placeholder' => 'D.N.I. del titular',
+		'value' => null,
+		'required' => true
+	),
+	'email' => array(
+		'type'  => 'email',
+		'class' => 'input100',
+		'name' => 'email',
+		'placeholder' => 'Email registrado',
+		'value' => null,
+		'required' => true
+	)
+);
+$form_attributes = array(
+	'role' => 'form',
+	'autocomplete' => 'off',
+	'class' => 'login100-form validate-form p-l-50 p-r-50 p-t-72 p-b-50'
+);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<title>Cuenta - Seguridad Informática - Sistemas de Seguridad</title>
+	<link rel="shortcut icon" href="<?= base_url(PATH_ONEPAGE)?>/images/favicon.png">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -32,12 +56,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" type="text/css" href="<?= base_url(PATH_LOGIN)?>/css/main.css">
 <!--===============================================================================================-->
 <style>
-	    *{
-        font-family: 'Oxygen', sans-serif;
-    }
+* {
+	font-family: 'Oxygen', sans-serif;
+}
 </style>
 </head>
 <body style="background-color: #999999;">
+
+<?php
+if (is_null($message) <> 1){
+	if ($message){
+?>
 		<!-- Notificacion -->
 		<div class="notificacion" id="notificación" onclick="cerrar(this)">
 			<h3>Te enviamos un email</h3>
@@ -50,32 +79,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		</script>
 		<!-- Fin notificacion -->
+<?php
+	}
+}
+?>
 	<div class="limiter">
 		<div class="container-login100">
-
-
 			<div class="wrap-login100 ">
 				<div class="wrap-bar">
 					<img src="<?= base_url(PATH_LOGIN)?>/images/logo-blanco.png" alt="">
 				</div>
-				<form class="login100-form validate-form p-l-50 p-r-50 p-t-72 p-b-50">
+				<?= form_open('',$form_attributes); ?>
 					<span class="login100-form-title p-b-59">
 						Recuperar contraseña
 					</span>
-
 					<div class="wrap-input100 validate-input" data-validate="Revisa este campo">
 						<span class="label-input100">Ingresa el D.N.I. del titular</span>
-						<input class="input100" type="email" name="name" placeholder="D.N.I. del titular">
+						<?= form_input($form['dni']); ?>
 						<span class="focus-input100"></span>
 					</div>
-
-
 					<div class="wrap-input100 validate-input" data-validate="Revisa este campo">
 						<span class="label-input100">Ingresa tu email.</span>
-						<input class="input100" type="email" name="name" placeholder="Email registrado">
+						<?= form_input($form['email']); ?>
 						<span class="focus-input100"></span>
 					</div>
-
 					<div class="flex-m w-full p-b-33">
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
@@ -88,22 +115,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</span>
 							</label> -->
 						</div>
-
-						
 					</div>
-
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn">
 								<b>RECUPERAR</b>
 							</button>
-							
 						</div>
 						<a href="<?= base_url(); ?>index.php/index/login">Iniciar sesión</a>
 						<a href="<?= base_url(); ?>index.php/index/registro">Registrarme</a>
 					</div>
-				</form>
+				<?= form_close(); ?>
 			</div>
 			<div class="login100-more" style="background-image: url('<?= base_url(PATH_LOGIN)?>/images/bg-01.jpg');"></div>
 		</div>
@@ -125,6 +148,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="<?= base_url(PATH_LOGIN)?>/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="<?= base_url(PATH_LOGIN)?>/js/main.js"></script>
-
 </body>
 </html>
