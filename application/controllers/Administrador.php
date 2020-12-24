@@ -12,7 +12,7 @@ class Administrador extends Super_Controller {
 		parent::__construct();
 		$this->load->library("Usuario");
 		$this->load->library("Pagina");
-		$this->load->library('grocery_CRUD');
+		$this->load->library('Grocery_CRUD');
 		$this->administrador=new Usuario();
 		$this->pagina=new Pagina();
 	}

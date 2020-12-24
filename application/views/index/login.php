@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $form = array(
 	'username' => array(
+		'type' => 'text',
 		'class' => 'input100',
 		'name' => 'username',
 		'placeholder' => 'D.N.I.',
@@ -10,6 +11,7 @@ $form = array(
 		'required' => true
 	),
 	'password' => array(
+		'type' => 'password',
 		'class' => 'input100',
 		'name' => 'password',
 		'placeholder' => 'Tu contraseña',
@@ -17,7 +19,6 @@ $form = array(
 		'required' => true
 	)
 );
-
 $form_attributes = array(
 	'role' => 'form',
 	'autocomplete' => 'off',
@@ -55,9 +56,9 @@ $form_attributes = array(
 	<link rel="stylesheet" type="text/css" href="<?= base_url(PATH_LOGIN)?>/css/main.css">
 <!--===============================================================================================-->
 <style>
-	    *{
-        font-family: 'Oxygen', sans-serif;
-    }
+* {
+	font-family: 'Oxygen', sans-serif;
+}
 </style>
 </head>
 <body style="background-color: #999999;">
@@ -69,7 +70,6 @@ $form_attributes = array(
 						<img src="<?= base_url(PATH_LOGIN)?>/images/logo-blanco.png" alt="">
 					</a>
 				</div>
-
 				<?= form_open('',$form_attributes); ?>
 					<span class="login100-form-title p-b-59">
 						Iniciar sesión
@@ -81,7 +81,7 @@ $form_attributes = array(
 					</div>
 					<div class="wrap-input100 validate-input*" data-validate = "Revisa este campo">
 						<span class="label-input100">Contraseña</span>
-						<?= form_input($form['password']); ?>						
+						<?= form_input($form['password']); ?>
 						<span class="focus-input100"></span>
 					</div>
 					<div class="flex-m w-full p-b-33">
@@ -96,14 +96,8 @@ $form_attributes = array(
 								<b>INGRESAR</b>
 							</button>
 						</div>
-						<!--
-						<a href="#">Olvidé mi contraseña</a>
-						<a href="#">Registrarse</a>
-
 						<a href="<?= base_url(); ?>index.php/index/recuperar">Olvidé mi contraseña</a>
 						<a href="<?= base_url(); ?>index.php/index/registro">Registrarse</a>
-					-->
-
 					</div>
 				<?= form_close(); ?>
 			</div>
@@ -127,6 +121,5 @@ $form_attributes = array(
 	<script src="<?= base_url(PATH_LOGIN)?>/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="<?= base_url(PATH_LOGIN)?>/js/main.js"></script>
-
 </body>
 </html>

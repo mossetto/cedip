@@ -71,61 +71,46 @@ $form_attributes = array(
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords"
-		content="Cuenta - Seguridad Electronica - Sistemas de Seguridad">
-	<meta name="Cuenta - Seguridad Electronica - Sistemas de Seguridad"
-		content="Cuenta - Seguridad Electronica - Sistemas de Seguridad">
+	<meta name="keywords" content="Cuenta - Seguridad Electronica - Sistemas de Seguridad">
+	<meta name="Cuenta - Seguridad Electronica - Sistemas de Seguridad" content="Cuenta - Seguridad Electronica - Sistemas de Seguridad">
 	<meta name="robots" content="noindex,nofollow">
 	<title>Cedip - Centro Médico - Cuenta</title>
 	<link rel="canonical" href="https://www.wrappixel.com/templates/materialpro-lite/" />
 	<link rel="shortcut icon" href="<?= base_url(PATH_ONEPAGE)?>/images/favicon.png">
-
 	<!-- Bootstrap Core CSS -->
 	<link href="<?= base_url(PATH_PANEL)?>/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom CSS -->
 	<link href="<?= base_url(PATH_PANEL)?>/css/style.css" rel="stylesheet">
 	<link href="<?= base_url(PATH_PANEL)?>/css/colors/blue.css" id="theme" rel="stylesheet">
-
 </head>
-
 <body class="fix-header fix-sidebar card-no-border">
-
 	<div class="preloader">
 		<svg class="circular" viewBox="25 25 50 50">
 			<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
 	</div>
-
 	<div id="main-wrapper">
-
 		<header class="topbar">
 			<nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
-
 				<div class="navbar-header">
 					<a class="navbar-brand">
-
 							<img src="<?= base_url(PATH_PANEL)?>/images/logo.png" alt="homepage" class="light-logo" />
 						</b><span></span>
 					</a>
-
 				</div>
-
 				<div class="navbar-collapse">
-
 					<ul class="navbar-nav mr-auto mt-md-0">
 						<!-- This is  -->
-						<li class="nav-item"> <a
-								class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
-								href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+						<li class="nav-item">
+							<a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)">
+								<i class="mdi mdi-menu"></i>
+							</a>
+						</li>
 					</ul>
-
 					<ul class="navbar-nav my-lg-0">
-
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="pages-profile.html"
 								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?= $form['nombre']['value']." ".$form['apellido']['value']; ?></a>
@@ -135,31 +120,26 @@ $form_attributes = array(
 				</div>
 			</nav>
 		</header>
-
 		<aside class="left-sidebar">
-
 			<div class="scroll-sidebar">
-
 				<nav class="sidebar-nav">
 					<ul id="sidebarnav">
-						<li> <a class="waves-effect waves-dark" href="<?= base_url(); ?>index.php/index/estudios" aria-expanded="false"><i
-							class="mdi mdi-table"></i><span class="hide-menu">Mis estudios</span></a>
+						<li>
+							<a class="waves-effect waves-dark" href="<?= base_url(); ?>index.php/index/estudios" aria-expanded="false">
+								<i class="mdi mdi-table"></i><span class="hide-menu">Mis estudios</span>
+							</a>
 						</li>
-						<li> <a class="waves-effect waves-dark" href="<?= base_url(); ?>index.php/index/user" aria-expanded="false"><i
-							class="mdi mdi-account-check"></i><span class="hide-menu">Mis datos</span></a>
-
+						<li>
+							<a class="waves-effect waves-dark" href="<?= base_url(); ?>index.php/index/user" aria-expanded="false">
+								<i class="mdi mdi-account-check"></i><span class="hide-menu">Mis datos</span>
+							</a>
 						</li>
 					</ul>
 				</nav>
-
 			</div>
-
 		</aside>
-
 		<div class="page-wrapper">
-
 			<div class="container-fluid">
-
 				<div class="row page-titles">
 					<div class="col-md-5 col-8 align-self-center">
 						<h3 class="text-themecolor m-b-0 m-t-0">Mis datos</h3>
@@ -206,7 +186,7 @@ $form_attributes = array(
 										<div class="col-md-12">
 											<?= form_input($form['apellido']); ?>
 										</div>
-									</div>									
+									</div>
 									<div class="form-group">
 										<label for="example-email" class="col-md-12">Email</label>
 										<div class="col-md-12">
@@ -228,7 +208,7 @@ $form_attributes = array(
 									<div class="form-group">
 										<label class="col-md-12">Nueva contraseña</label>
 										<div class="col-md-12">
-											<?= form_input($form['pass_web']); ?>											
+											<?= form_input($form['pass_web']); ?>
 										</div>
 									</div>
 									<div class="form-group">
@@ -244,33 +224,28 @@ $form_attributes = array(
 									</div>
 <?php
 if (is_null($message) <> 1){
-if ($message){
-?>									
+	if ($message){
+?>
 									<label class="col-md-12 text-success">Cambios realizados</label>
 <?php
-}else{
+	}else{
 ?>
 									<label class="col-md-12 text-danger">Valores incorrecto, revisa el campo</label>
 <?php
+	}
 }
-}
-?>									
+?>
 								<?= form_close(); ?>
 							</div>
 						</div>
 					</div>
 					<!-- Column -->
 				</div>
-
 			</div>
-
 			<footer class="footer"> © 2020 Seguridad Electrónica
 			</footer>
-
 		</div>
-
 	</div>
-
 	<!-- All Jquery -->
 	<!-- ============================================================== -->
 	<script src="<?= base_url(PATH_PANEL)?>/plugins/jquery/jquery.min.js"></script>
@@ -288,5 +263,4 @@ if ($message){
 	<!--Custom JavaScript -->
 	<script src="<?= base_url(PATH_PANEL)?>/js/custom.min.js"></script>
 </body>
-
 </html>
