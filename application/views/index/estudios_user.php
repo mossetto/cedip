@@ -161,7 +161,7 @@ $form_attributes = array(
 										<thead>
 											<tr>
 												<th>Fecha</th>
-												<th>Estudio</th>
+												<th>Profesional</th>
 												<th>Especialidad</th>
 												<th>
 													<a class="waves-effect waves-dark">
@@ -211,7 +211,7 @@ $form_attributes = array(
 
 			</div>
 
-			<footer class="footer">© 2020 Seguridad Electrónica
+			<footer class="footer">© 2021 Cedip Centro Médico
 			</footer>
 
 		</div>

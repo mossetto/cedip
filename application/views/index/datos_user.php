@@ -242,7 +242,7 @@ if (is_null($message) <> 1){
 					<!-- Column -->
 				</div>
 			</div>
-			<footer class="footer"> © 2020 Seguridad Electrónica
+			<footer class="footer"> © 2021 Cedip Centro Médico
 			</footer>
 		</div>
 	</div>
