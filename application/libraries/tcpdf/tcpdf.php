@@ -3491,7 +3491,7 @@ class TCPDF {
 	 */
 	public function Footer() {
 		$logoX = 0; // 186mm. The logo will be displayed on the right side close to the border of the page
-		$logoFileName = K_PATH_IMAGES."/footer.jpg";
+		$logoFileName = K_PATH_IMAGES."/footer.png";
 		$logoWidth = 220; // 15mm
 		$logo = $this->PageNo() . ' | '. $this->Image($logoFileName, $logoX, $this->GetY()-50, $logoWidth);
 		$this->SetX(0 - 18 - $logoWidth); // documentRightMargin = 18

@@ -58,6 +58,7 @@ class Pacientes_model extends CI_Model
 	function getHistorialMedicoPaciente($dni)
 	{
 		$resultado = $this->db->query("select historias_clinicas.codigo, historias_clinicas.fecha, especialidades.especialidad, empleados.nombre, empleados.apellido, pacientes.nombre as nombre_paciente, pacientes.apellido as apellido_paciente, obras_sociales.razon_social, historias_clinicas.imagen1, historias_clinicas.imagen2,historias_clinicas.imagen3,historias_clinicas.imagen4 from historias_clinicas INNER JOIN especialidades on especialidades.codigo = historias_clinicas.especialidad INNER JOIN profesionales on profesionales.codigo = historias_clinicas.profesional INNER JOIN empleados on empleados.dni = profesionales.cod_usuario INNER JOIN pacientes on pacientes.dni = historias_clinicas.paciente INNER JOIN obras_sociales on obras_sociales.codigo = pacientes.cod_obra_social where historias_clinicas.paciente = $dni");
+		//echo $this->db->last_query();
 		return $resultado->result();//->result_array();
 	}
 

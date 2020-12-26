@@ -240,6 +240,29 @@ if (is_null($message) <> 1){
 						</div>
 					</div>
 					<!-- Column -->
+					<!-- Modal -->
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Mensaje del Sistema</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									Por su seguridad, le recomendamos suministrar un Correo Electronico Personal con el cual podamos tener mejor comunicacion con usted, y asi poderle ayudar en caso de que olvide su contraseña.
+									<br><br>
+									Gracias.
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+									<!--<button type="button" class="btn btn-primary">Save changes</button>-->
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Modal -->
 				</div>
 			</div>
 			<footer class="footer"> © 2021 Cedip Centro Médico
@@ -262,5 +285,15 @@ if (is_null($message) <> 1){
 	<script src="<?= base_url(PATH_PANEL)?>/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
 	<!--Custom JavaScript -->
 	<script src="<?= base_url(PATH_PANEL)?>/js/custom.min.js"></script>
+<?php
+if (strlen($correo) < 5){
+?>
+	<script type="text/javascript">
+		$('#exampleModal').modal({ show: false});
+		$('#exampleModal').modal('show');
+	</script>
+<?php
+}
+?>
 </body>
 </html>
