@@ -109,7 +109,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("welcome/acceso");
+			redirect("acceso");
 		}  
 	}
 
@@ -147,7 +147,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("welcome/acceso");
+			redirect("acceso");
 		}  
 	}
 
@@ -179,7 +179,7 @@ class Super_Controller extends CI_Controller{
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -213,7 +213,7 @@ class Super_Controller extends CI_Controller{
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -246,7 +246,7 @@ class Super_Controller extends CI_Controller{
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -283,7 +283,7 @@ class Super_Controller extends CI_Controller{
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -305,7 +305,7 @@ class Super_Controller extends CI_Controller{
 			$this->load->view('secretaria/vista_general.php',$vista);
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 
@@ -352,7 +352,7 @@ class Super_Controller extends CI_Controller{
 			$this->load->view('secretaria/vista_general.php',$vista);
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 
@@ -398,7 +398,7 @@ class Super_Controller extends CI_Controller{
 			$this->load->view('administrador/vista_general.php',$vista);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	//// reporte obras sociales
@@ -411,7 +411,7 @@ class Super_Controller extends CI_Controller{
 			
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -425,7 +425,7 @@ class Super_Controller extends CI_Controller{
 			
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -463,7 +463,7 @@ class Super_Controller extends CI_Controller{
 			
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -491,7 +491,7 @@ class Super_Controller extends CI_Controller{
 			
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -507,7 +507,7 @@ class Super_Controller extends CI_Controller{
 			
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -540,7 +540,7 @@ class Super_Controller extends CI_Controller{
 			
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -583,11 +583,11 @@ class Super_Controller extends CI_Controller{
 				$hoy = Date("Y")."-".Date("m")."-".Date("d");
 				$this->mostrar_vista_cobro($turno,$hoy);      
 			}else{
-				redirect('/welcome/acceso');
+				redirect("acceso");
 			}
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -640,12 +640,12 @@ class Super_Controller extends CI_Controller{
 
 				$this->load->view('administrador/cobrar_turno.php',$vista);
 			}else{
-				redirect('/welcome/acceso');
+				redirect("acceso");
 			}
 			
 			
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 		
 
@@ -690,10 +690,10 @@ class Super_Controller extends CI_Controller{
 					$this->afectar_caja($turno,$importe);
 				}
 			}else{
-				redirect('/welcome/acceso');
+				redirect("acceso");
 			}
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -779,7 +779,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("welcome/acceso");
+			redirect("acceso");
 		}
    }  
    
@@ -822,19 +822,19 @@ class Super_Controller extends CI_Controller{
 			}
 			else
 			{
-				redirect("Welcome/acceso");
+				redirect("acceso");
 			}
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
 	public function cerrar_sesion()
 	{
 		$this->session->sess_destroy();
-		redirect("Welcome/acceso");
+		redirect("acceso");
 	}
 	
 	public function prueba()
@@ -853,7 +853,7 @@ class Super_Controller extends CI_Controller{
 		  
 		  echo json_encode($resultado);
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -870,7 +870,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -885,7 +885,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -917,7 +917,7 @@ class Super_Controller extends CI_Controller{
 		  }
 		  echo json_encode($resultado);
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -960,7 +960,7 @@ class Super_Controller extends CI_Controller{
 		 
 		  echo json_encode($resultado);
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 
@@ -1057,7 +1057,7 @@ class Super_Controller extends CI_Controller{
 		  }
 		  echo json_encode($resultado);
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}    
 	}
 	
@@ -1117,7 +1117,7 @@ class Super_Controller extends CI_Controller{
 		  
 		  echo json_encode($resultado);
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}    
 	}
 
@@ -1138,7 +1138,7 @@ class Super_Controller extends CI_Controller{
 			echo json_encode($resultado);
 			
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -1224,7 +1224,7 @@ class Super_Controller extends CI_Controller{
 		  
 		  echo json_encode($mensaje);
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}    
 	}
 
@@ -1317,7 +1317,7 @@ class Super_Controller extends CI_Controller{
 		  
 		  echo json_encode($mensaje);
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}    
 	}
 	
@@ -1340,7 +1340,7 @@ class Super_Controller extends CI_Controller{
 		  
 		  
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}    
 	}
 	
@@ -1354,7 +1354,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -1390,7 +1390,7 @@ class Super_Controller extends CI_Controller{
 			
 			echo json_encode($resultado);
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -1404,7 +1404,7 @@ class Super_Controller extends CI_Controller{
 			$resultado = $this->Pacientes_model->getPacientes();
 			echo json_encode($resultado);
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -1460,7 +1460,7 @@ class Super_Controller extends CI_Controller{
 			
 			echo json_encode($estado);
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -1481,7 +1481,7 @@ class Super_Controller extends CI_Controller{
 		   echo json_encode($resultado);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -1503,7 +1503,7 @@ class Super_Controller extends CI_Controller{
 		   echo json_encode($resultado);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -1524,7 +1524,7 @@ class Super_Controller extends CI_Controller{
 		   echo json_encode($resultado);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -1545,7 +1545,7 @@ class Super_Controller extends CI_Controller{
 		   echo json_encode($resultado);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -1562,7 +1562,7 @@ class Super_Controller extends CI_Controller{
 		   echo json_encode($resultado);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -1583,7 +1583,7 @@ class Super_Controller extends CI_Controller{
 	   }
 	   else
 	   {
-		   redirect('/welcome/acceso');
+		   redirect("acceso");
 	   } 
 	}
 	
@@ -1600,7 +1600,7 @@ class Super_Controller extends CI_Controller{
 			$this->load->view('reportes/impresion',$vista);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -1623,7 +1623,7 @@ class Super_Controller extends CI_Controller{
 			$this->load->view('administrador/vista_general.php',$vista);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -1635,7 +1635,7 @@ class Super_Controller extends CI_Controller{
 			echo json_encode($this->Turnos_model->getTurnosPendientes());
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -1668,7 +1668,7 @@ class Super_Controller extends CI_Controller{
 			$this->load->view('reportes/impresion',$vista);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}    
 	}
    
@@ -1695,7 +1695,7 @@ class Super_Controller extends CI_Controller{
 			$this->load->view('reportes/impresion',$vista);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}    
 	}
 	
@@ -1742,7 +1742,7 @@ class Super_Controller extends CI_Controller{
 		   $this->actualizar_caja($fecha);
 		   $this->caja();
 		}else {
-			redirect("Welcome/acceso");  
+			redirect("acceso");  
 		}
 	}
 	
@@ -1782,7 +1782,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -1797,7 +1797,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -1823,7 +1823,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 
 	}
@@ -1870,7 +1870,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -1892,7 +1892,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -1911,7 +1911,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -1967,12 +1967,12 @@ class Super_Controller extends CI_Controller{
 			}
 			else
 			{
-				redirect("Welcome/acceso");
+				redirect("acceso");
 			}
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 
@@ -2084,7 +2084,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 
@@ -2170,12 +2170,12 @@ class Super_Controller extends CI_Controller{
 			}
 			else
 			{
-				redirect("Welcome/acceso");
+				redirect("acceso");
 			}
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -2210,7 +2210,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 		
 	}
@@ -2325,7 +2325,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -2357,7 +2357,6 @@ class Super_Controller extends CI_Controller{
 	
 	public function ver_imagenes_historia_clinica($codigo)
 	{
-		var_dump($_SESSION);
 		if((($this->session->userdata("tipo_usuario") == "1" || $this->session->userdata("tipo_usuario") == "2" || $this->session->userdata("tipo_usuario") == "3" || $this->session->userdata("tipo_usuario") == "4") && $this->session->userdata("operativo") == "si")) 
 		{
 		
@@ -2403,7 +2402,7 @@ class Super_Controller extends CI_Controller{
 		}  
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -2419,7 +2418,7 @@ class Super_Controller extends CI_Controller{
 		}  
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -2439,7 +2438,7 @@ class Super_Controller extends CI_Controller{
 		}  
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -2458,7 +2457,7 @@ class Super_Controller extends CI_Controller{
 		}  
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	

@@ -40,7 +40,7 @@ class Administrador extends Super_Controller {
 			}
 
 			}else{
-				redirect('/welcome/acceso');
+				redirect("acceso");
 		}
 	}
 	
@@ -82,7 +82,7 @@ class Administrador extends Super_Controller {
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -121,7 +121,7 @@ class Administrador extends Super_Controller {
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -151,7 +151,7 @@ class Administrador extends Super_Controller {
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -188,7 +188,7 @@ class Administrador extends Super_Controller {
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -220,7 +220,7 @@ class Administrador extends Super_Controller {
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -253,7 +253,7 @@ class Administrador extends Super_Controller {
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -318,7 +318,7 @@ class Administrador extends Super_Controller {
 			
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -352,7 +352,7 @@ class Administrador extends Super_Controller {
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -504,7 +504,7 @@ class Administrador extends Super_Controller {
 		}
 		else
 		{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 
@@ -537,7 +537,7 @@ class Administrador extends Super_Controller {
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -551,7 +551,7 @@ class Administrador extends Super_Controller {
 		   echo json_encode($resultado);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -565,7 +565,7 @@ class Administrador extends Super_Controller {
 		   echo json_encode($resultado);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -595,7 +595,7 @@ class Administrador extends Super_Controller {
 				redirect('/administrador/abm_datos_home');
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -610,7 +610,7 @@ class Administrador extends Super_Controller {
 		   redirect('/administrador/abm_datos_home');
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -636,7 +636,7 @@ class Administrador extends Super_Controller {
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -656,7 +656,7 @@ class Administrador extends Super_Controller {
 		   return $resultado;
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -671,7 +671,7 @@ class Administrador extends Super_Controller {
 		   echo json_encode($resultado);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -696,7 +696,7 @@ class Administrador extends Super_Controller {
 		   echo json_encode($resultado);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -712,7 +712,7 @@ class Administrador extends Super_Controller {
 		   echo json_encode($resultado);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -728,7 +728,7 @@ class Administrador extends Super_Controller {
 		   echo json_encode($resultado);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -748,7 +748,7 @@ class Administrador extends Super_Controller {
 			
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}*/
 	
@@ -801,12 +801,12 @@ class Administrador extends Super_Controller {
 			}
 			else
 			{
-				redirect("Welcome/acceso");
+				redirect("acceso");
 			}
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -822,7 +822,7 @@ class Administrador extends Super_Controller {
 		   echo json_encode($resultado);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -853,7 +853,7 @@ class Administrador extends Super_Controller {
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -884,7 +884,7 @@ class Administrador extends Super_Controller {
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -916,7 +916,7 @@ class Administrador extends Super_Controller {
 			}
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -942,7 +942,7 @@ class Administrador extends Super_Controller {
 			
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 }

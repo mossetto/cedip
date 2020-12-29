@@ -52,15 +52,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('home/vista_general_pie',$template);
 		$this->load->view('home/index');		
 	}
-		
-		public function acceso(){
-			$pagina = new Pagina();
-			$pagina->generar_pagina_loguin();
-			$vista["pagina"]=$pagina;
-			$vista["salida_error"]="";
-			$this->load->view('loguin', $vista);
-	}
-		
+
 		public function validar_usuario(){
 			$pagina = new Pagina();
 			$pagina->generar_pagina_loguin();
@@ -484,7 +476,7 @@ class Welcome extends CI_Controller {
 			}
 			else
 			{
-				redirect("Welcome/acceso");
+				redirect("acceso");
 			}
 		}
 		

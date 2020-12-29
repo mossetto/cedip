@@ -37,7 +37,7 @@ class Secretaria extends Super_Controller
 			}
 
 			}else{
-				redirect('/welcome/acceso');
+				redirect("acceso");
 		}
 	}
 	
@@ -57,7 +57,7 @@ class Secretaria extends Super_Controller
 			
 
 		}else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -75,7 +75,7 @@ class Secretaria extends Super_Controller
 		  }
 		  echo json_encode($resultado);
 //        }else{
-//            redirect('/welcome/acceso');
+//            redirect("acceso");
 //        }
 	}
 	
@@ -94,7 +94,7 @@ class Secretaria extends Super_Controller
 //          }
 //          echo json_encode($resultado);
 ////        }else{
-////            redirect('/welcome/acceso');
+////            redirect("acceso");
 ////        }
 //    }
 	
@@ -115,7 +115,7 @@ class Secretaria extends Super_Controller
 		   echo json_encode($resultado);
 		}
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}*/
 	
@@ -136,7 +136,7 @@ class Secretaria extends Super_Controller
 		}
 		
 		else{
-			redirect('/welcome/acceso');
+			redirect("acceso");
 		}
 	}
 	
@@ -161,7 +161,7 @@ class Secretaria extends Super_Controller
 			}
 
 			}else{
-				redirect('/welcome/acceso');
+				redirect("acceso");
 		}
 	}
 	
@@ -183,7 +183,7 @@ class Secretaria extends Super_Controller
 			}
 
 			}else{
-				redirect('/welcome/acceso');
+				redirect("acceso");
 		}
 	}
    
@@ -205,7 +205,7 @@ class Secretaria extends Super_Controller
 			}
 
 			}else{
-				redirect('/welcome/acceso');
+				redirect("acceso");
 		}
 	}
 	
@@ -227,7 +227,7 @@ class Secretaria extends Super_Controller
 			}
 
 			}else{
-				redirect('welcome/acceso');
+				redirect("acceso");
 		}
 	}
 		
