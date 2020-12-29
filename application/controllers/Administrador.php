@@ -801,12 +801,12 @@ class Administrador extends Super_Controller {
 			}
 			else
 			{
-				redirect("Welcome/acceso");
+				redirect("acceso");
 			}
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	

@@ -109,7 +109,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("welcome/acceso");
+			redirect("acceso");
 		}  
 	}
 
@@ -147,7 +147,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("welcome/acceso");
+			redirect("acceso");
 		}  
 	}
 
@@ -779,7 +779,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("welcome/acceso");
+			redirect("acceso");
 		}
    }  
    
@@ -822,19 +822,19 @@ class Super_Controller extends CI_Controller{
 			}
 			else
 			{
-				redirect("Welcome/acceso");
+				redirect("acceso");
 			}
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
 	public function cerrar_sesion()
 	{
 		$this->session->sess_destroy();
-		redirect("Welcome/acceso");
+		redirect("acceso");
 	}
 	
 	public function prueba()
@@ -1742,7 +1742,7 @@ class Super_Controller extends CI_Controller{
 		   $this->actualizar_caja($fecha);
 		   $this->caja();
 		}else {
-			redirect("Welcome/acceso");  
+			redirect("acceso");  
 		}
 	}
 	
@@ -1782,7 +1782,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -1797,7 +1797,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -1823,7 +1823,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 
 	}
@@ -1870,7 +1870,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -1892,7 +1892,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -1911,7 +1911,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -1967,12 +1967,12 @@ class Super_Controller extends CI_Controller{
 			}
 			else
 			{
-				redirect("Welcome/acceso");
+				redirect("acceso");
 			}
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 
@@ -2084,7 +2084,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 
@@ -2170,12 +2170,12 @@ class Super_Controller extends CI_Controller{
 			}
 			else
 			{
-				redirect("Welcome/acceso");
+				redirect("acceso");
 			}
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -2210,7 +2210,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 		
 	}
@@ -2325,7 +2325,7 @@ class Super_Controller extends CI_Controller{
 		}
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -2403,7 +2403,7 @@ class Super_Controller extends CI_Controller{
 		}  
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -2419,7 +2419,7 @@ class Super_Controller extends CI_Controller{
 		}  
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -2439,7 +2439,7 @@ class Super_Controller extends CI_Controller{
 		}  
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
@@ -2458,7 +2458,7 @@ class Super_Controller extends CI_Controller{
 		}  
 		else
 		{
-			redirect("Welcome/acceso");
+			redirect("acceso");
 		}
 	}
 	
