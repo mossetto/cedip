@@ -2357,6 +2357,7 @@ class Super_Controller extends CI_Controller{
 	
 	public function ver_imagenes_historia_clinica($codigo)
 	{
+		var_dump($_SESSION);
 		if((($this->session->userdata("tipo_usuario") == "1" || $this->session->userdata("tipo_usuario") == "2" || $this->session->userdata("tipo_usuario") == "3" || $this->session->userdata("tipo_usuario") == "4") && $this->session->userdata("operativo") == "si")) 
 		{
 		

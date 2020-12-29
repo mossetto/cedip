@@ -34,6 +34,8 @@
 			padding-left: 0px;
 		}
     </style>
+
+    <link rel="stylesheet" href="<?php echo base_url(); ?>recursos/css/estilos-back.css">
 </head>
 <body class="hold-transition skin-green-light sidebar-mini">
 <div class="wrapper">
