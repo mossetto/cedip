@@ -45,6 +45,7 @@ class Pagina implements Pagina_interface
         //$this->generar_estilos("theme.css");
         //$this->generar_estilos("base-loguin.css");
         //$this->generar_estilos("main-loguin.css");
+        $this->generar_estilos("estilos-back.css");
         $this->title="Loguin";
     }
     
