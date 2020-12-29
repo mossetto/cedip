@@ -389,7 +389,9 @@ class Pagina implements Pagina_interface
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class='logo-mini'><b>A</b>dm</span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class='logo-lg'><b>Cedip</b></span>
+                    <span class='logo-lg'>
+                      <img src='". base_url(PATH_PANEL)."/images/logo.png' alt='homepage' class='light-logo' style=' width: 50%; height: 50%;' />
+                    </span>
                   </a>
 
                   <!-- Header Navbar -->
