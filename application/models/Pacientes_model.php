@@ -51,7 +51,7 @@ class Pacientes_model extends CI_Model
 	
 	function getPacienteInicioSesion($dni,$password)
 	{
-		$resultado = $this->db->query("SELECT * FROM pacientes where pacientes.dni = $dni and pacientes.pass_web = $password");
+		$resultado = $this->db->query("SELECT * FROM pacientes where pacientes.dni = '$dni' and pacientes.pass_web = '$password'");
 		return $resultado->result_array();
 	}
 	

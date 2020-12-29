@@ -226,72 +226,66 @@ class Index extends CI_Controller {
 			redirect('index/estudios','refresh');
 		}
 		//
-			$this->load->model("Historias_Clinicas_model");
-			$this->load->model("Pacientes_model");
-			$this->load->model("Obras_sociales_model");
-			$this->load->model("Especialidades_model");
+		$this->load->model("Historias_Clinicas_model");
+		$this->load->model("Pacientes_model");
+		$this->load->model("Obras_sociales_model");
+		$this->load->model("Especialidades_model");
+		
+		$historia_clinica = $this->Historias_Clinicas_model->Historias_Clinicas_model->getHistoriaClinica($codigo);
 			
-			$historia_clinica = $this->Historias_Clinicas_model->Historias_Clinicas_model->getHistoriaClinica($codigo);
+		$historia_clinica[0]["examen"];
+		$historia_clinica[0]["conclusion"];
+		$especialidad= $this->Especialidades_model->getEspecialidad($historia_clinica[0]["especialidad"]);
+		$paciente = $this->Pacientes_model->getPaciente($historia_clinica[0]["paciente"]);
+		$fecha = new DateTime($historia_clinica[0]["fecha"]);
+		$obra_social = $this->Obras_sociales_model->getObraSocial($paciente[0]["cod_obra_social"]);
 			
-			$historia_clinica[0]["examen"];
-			$historia_clinica[0]["conclusion"];
-			$especialidad= $this->Especialidades_model->getEspecialidad($historia_clinica[0]["especialidad"]);
-			
-			$paciente = $this->Pacientes_model->getPaciente($historia_clinica[0]["paciente"]);
-		   
-			
-			$fecha = new DateTime($historia_clinica[0]["fecha"]);
-			
-			$obra_social = $this->Obras_sociales_model->getObraSocial($paciente[0]["cod_obra_social"]);
-			
-			 
-			//$this->load->view('reportes/impresion_con_js',$vista);
-			
-			$this->load->library('Pdf');
-			$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);
-			$pdf->SetCreator(PDF_CREATOR);
-			$pdf->SetAuthor('CoreGarello');
-			$pdf->SetTitle($paciente[0]["apellido"]."_".$fecha->format('d_m_Y'));
-			$pdf->SetSubject('CoreGarello');
-			$pdf->SetKeywords('CoreGarello');
+		//$this->load->view('reportes/impresion_con_js',$vista);
+		$this->load->library('Pdf');
+		$pdf = new Pdf('P', 'mm', 'A4', true, 'UTF-8', false);
+		$pdf->SetCreator(PDF_CREATOR);
+		$pdf->SetAuthor('CoreGarello');
+		$pdf->SetTitle($paciente[0]["apellido"]."_".$fecha->format('d_m_Y'));
+		$pdf->SetSubject('CoreGarello');
+		$pdf->SetKeywords('CoreGarello');
  
-			$paciente = $paciente[0]["nombre"]." ".$paciente[0]["apellido"];
-			$direccion = "";
-			// datos por defecto de cabecera, se pueden modificar en el archivo tcpdf_config_alt.php de libraries/config
-			$pdf->SetHeaderData(PDF_HEADER_LOGO, 210, null . '', $direccion, array(0, 64, 255), array(0, 64, 128));
-			$pdf->setFooterData($tc = array(0, 64, 0), $lc = array(0, 64, 128));
+		$paciente = $paciente[0]["nombre"]." ".$paciente[0]["apellido"];
+		$direccion = "";
+		// datos por defecto de cabecera, se pueden modificar en el archivo tcpdf_config_alt.php de libraries/config
+		$pdf->SetHeaderData(PDF_HEADER_LOGO, 210, null . '', $direccion, array(0, 64, 255), array(0, 64, 128));
+		$pdf->setFooterData($tc = array(0, 64, 0), $lc = array(0, 64, 128));
  
-			// datos por defecto de cabecera, se pueden modificar en el archivo tcpdf_config.php de libraries/config
-			$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-			$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+		// datos por defecto de cabecera, se pueden modificar en el archivo tcpdf_config.php de libraries/config
+		$pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+		$pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+ 		// se pueden modificar en el archivo tcpdf_config.php de libraries/config
+		$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
  
-			// se pueden modificar en el archivo tcpdf_config.php de libraries/config
-			$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
- 
-			// se pueden modificar en el archivo tcpdf_config.php de libraries/config
-			$pdf->SetMargins(0, 50, 0);
-			$pdf->SetHeaderMargin(0);
-			$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
-			// se pueden modificar en el archivo tcpdf_config.php de libraries/config
-			$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
-			//relación utilizada para ajustar la conversión de los píxeles
-			$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
-			// ---------------------------------------------------------
-			// establecer el modo de fuente por defecto
-			$pdf->setFontSubsetting(true);
- 
-			// Establecer el tipo de letra
- 
-			//Si tienes que imprimir carácteres ASCII estándar, puede utilizar las fuentes básicas como
-			// Helvetica para reducir el tamaño del archivo.
-			$pdf->SetFont('Helvetica', '', 13, '', true);
- 
-			// Añadir una página
-			// Este método tiene varias opciones, consulta la documentación para más información.
-			$pdf->AddPage();
- 
+		// se pueden modificar en el archivo tcpdf_config.php de libraries/config
+		$pdf->SetMargins(15, 50, 15);
+
+		$pdf->SetHeaderMargin(0);
+		$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+		// se pueden modificar en el archivo tcpdf_config.php de libraries/config
+		$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+		//relación utilizada para ajustar la conversión de los píxeles
+		$pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+		// ---------------------------------------------------------
+		// establecer el modo de fuente por defecto
+		$pdf->setFontSubsetting(true);
+
+		// Establecer el tipo de letra
+
+		//Si tienes que imprimir carácteres ASCII estándar, puede utilizar las fuentes básicas como
+		// Helvetica para reducir el tamaño del archivo.
+		$pdf->SetFont('Helvetica', '', 13, '', true);
+
+		// Añadir una página
+		// Este método tiene varias opciones, consulta la documentación para más información.
+		$pdf->AddPage();
+
 			//fijar efecto de sombra en el texto
-			$pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2, 'color' => array(196, 196, 196), 'opacity' => 1, 'blend_mode' => 'Normal'));
+		$pdf->setTextShadow(array('enabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2, 'color' => array(196, 196, 196), 'opacity' => 1, 'blend_mode' => 'Normal'));
 
 			// Establecemos el contenido para imprimir
 			/*$provincia = $this->input->post('provincia');
@@ -301,15 +295,28 @@ class Index extends CI_Controller {
 				$prov = $fila['p.provincia'];
 			}*/
 			//preparamos y maquetamos el contenido a crear
-			$html = "<div style='margin-top: 10px;margin-left: 20px !important;font-family: Arial;'>";
-			$html .= "<p>&nbsp;&nbsp;&nbsp;<b>Nombre: </b> $paciente</p>
-					  <p>&nbsp;&nbsp;&nbsp;<b>Medico Solicitante: </b> ".$historia_clinica[0]["medico"]."</p>
-					  <p>&nbsp;&nbsp;&nbsp;<b>Fecha: </b>".$fecha->format('d-m-Y')."</p>
-					  <p>&nbsp;&nbsp;&nbsp;<b>Obra social: </b>".$obra_social["razon_social"]."</p>
-					  <p>&nbsp;&nbsp;&nbsp;<b>Especialidad: </b>".$especialidad["especialidad"]."</p>
-					  <p style='margin-top: 10px;'>&nbsp;&nbsp;&nbsp;<b>Examen:</b></p><p>&nbsp;&nbsp;&nbsp;".$historia_clinica[0]["examen"]."</p>
+			$html = "<div>";
+			$html .= "<p><b>Nombre: </b> $paciente</p>
+					  <p><b>Medico Solicitante: </b> ".$historia_clinica[0]["medico"]."</p>
+					  <p><b>Fecha: </b>".$fecha->format('d-m-Y')."</p>
+					  <p><b>Obra social: </b>".$obra_social["razon_social"]."</p>
+					  <p><b>Especialidad: </b>".$especialidad["especialidad"]."</p>
+					  <p style='margin-top: 10px;'><b>Examen: </b></p><p style='background-color:powderblue;margin-left: 10px !important;'>".trim($historia_clinica[0]["examen"])."</p>
+
+
+
+
 					  <p style='margin-top: 10px;'>&nbsp;&nbsp;&nbsp;<b>Conclusion:</b></p><p>&nbsp;&nbsp;&nbsp;".$historia_clinica[0]["conclusion"]."</p>";
 			$html.="</div>";
+			//echo $html;
+
+			//color:red !important;border: red 2px solid !important; margin: 20px !important;
+			//text-align: justify;margin-left: 20px !important;
+
+
+
+
+
  
 			//provincias es la respuesta de la función getProvinciasSeleccionadas($provincia) del modelo
 			/*foreach ($provincias as $fila) 
