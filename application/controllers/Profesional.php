@@ -47,7 +47,7 @@ class Profesional extends Super_Controller
             }
 
             }else{
-                redirect('/welcome/acceso');
+                redirect("acceso");
         }
     }
     
@@ -68,7 +68,7 @@ class Profesional extends Super_Controller
        }
        else
        {
-            redirect('/welcome/acceso');  
+            redirect("acceso");  
        }
    }
    
@@ -96,7 +96,7 @@ class Profesional extends Super_Controller
          
           echo json_encode($resultado);
         }else{
-            redirect('/welcome/acceso');
+            redirect("acceso");
         }
     }*/
     public function getTurnosProfesionalPorMesAnioEspecialidad()
@@ -116,7 +116,7 @@ class Profesional extends Super_Controller
             $resultado=$this->Turnos_model->getTurnosProfesionalPorMesAnioEspecialidad($cod_profesional,$cod_especialidad,$mes,$anio);
             echo json_encode($resultado);
         }else{
-            redirect('/welcome/acceso');
+            redirect("acceso");
         }
     }
     
@@ -128,7 +128,7 @@ class Profesional extends Super_Controller
             $resultado=$this->Historias_clinicas_model->getHistoriaClinicaPorTurno($this->input->post("turno"));
             echo json_encode($resultado);
         }else{
-            redirect('/welcome/acceso');
+            redirect("acceso");
         }
     }
     
@@ -148,7 +148,7 @@ class Profesional extends Super_Controller
             
 
         }else{
-            redirect('/welcome/acceso');
+            redirect("acceso");
         }
     }  
     
@@ -172,7 +172,7 @@ class Profesional extends Super_Controller
           }
           echo json_encode($resultado);
         }else{
-            redirect('/welcome/acceso');
+            redirect("acceso");
         }
     }
     
@@ -183,7 +183,7 @@ class Profesional extends Super_Controller
           echo json_encode($this->Turnos_model->atender_turno($this->input->post("codigo")));
         }
         else{
-            redirect('/welcome/acceso');
+            redirect("acceso");
         }
      }
      
@@ -204,7 +204,7 @@ class Profesional extends Super_Controller
         }
         
         else{
-            redirect('/welcome/acceso');
+            redirect("acceso");
         }
     }
 }
