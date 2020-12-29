@@ -104,7 +104,7 @@ class Usuario_model extends CI_Model{
         
         $respuesta =  $this->db->update('empleados', $data);
         
-        var_dump($respuesta);
+        //var_dump($respuesta);
         // Si no quiso cambiar la imagen
         if($imagen == ""){}
     }
