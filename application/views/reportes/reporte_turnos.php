@@ -19,7 +19,7 @@
         <link rel="icon" type="image/png" href="<?php echo base_url(); ?>recursos/img/pagina/favicon.ico"/>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>recursos/css/jquery.datetimepicker.css"/>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>recursos/css/bootstrap-table.css"/>
-        
+        <link rel="stylesheet" href="<?php echo base_url(); ?>recursos/css/estilos-back.css">
     </head>
     <body class="hold-transition skin-green-light sidebar-mini">
         <div class="wrapper">

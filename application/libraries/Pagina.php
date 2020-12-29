@@ -45,6 +45,7 @@ class Pagina implements Pagina_interface
         //$this->generar_estilos("theme.css");
         //$this->generar_estilos("base-loguin.css");
         //$this->generar_estilos("main-loguin.css");
+        $this->generar_estilos("estilos-back.css");
         $this->title="Loguin";
     }
     
@@ -3425,9 +3426,14 @@ class Pagina implements Pagina_interface
                 <div class='box-body' id='tabla_historias_clinicas'>
                     <div class='col-md-12'>";
           
-                    $imagenes = unserialize($historia[0]["imagenes"]);                    
+                    $imagenes = unserialize($historia[0]["imagenes"]);
 
-                     for($i=0; $i < count($imagenes); $i++)
+                    //var_dump($imagenes);
+                    //var_dump($historia[0]["imagenes"]);
+                    //(is_countable($admin)?$admin:[])
+
+                     for($i=0; $i < count((is_countable($imagenes)?$imagenes:[])); $i++)
+                     //for($i=0; $i < count($imagenes); $i++)
                      {
                          if(getimagesize(base_url()."recursos/img/pacientes/".$imagenes[$i]))
                          {

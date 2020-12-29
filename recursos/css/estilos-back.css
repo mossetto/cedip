@@ -1,0 +1,82 @@
+#tabla_historias_clinicas .fixed-table-body tbody td:nth-child(5){
+    width: 182px;
+}
+
+#tabla_historias_clinicas .fixed-table-body tbody td:nth-child(5) a{
+    background-color:#0f6faa;
+    border: 1px solid #0f6faa;
+}
+#tabla_historias_clinicas .fixed-table-body tbody td:nth-child(5) a:hover{
+    background-color:#1c7cb8;
+    border: 1px solid #0f6faa;
+}
+
+#tabla_historias_clinicas .th-inner{
+    text-transform: capitalize;
+}
+#tabla_historias_clinicas .fixed-table-body tbody td:nth-child(4){
+    width: 62%;
+    padding: 8px 15px 25px 15px;
+}
+.skin-green-light .main-header .navbar {
+    background-color: #107CBD;
+}
+.skin-green-light .main-header .logo{
+    background-color: #107CBD;
+}
+
+
+#formulario_editar_historia #examen_editar_historia_clinica{
+    height: 200px;
+}
+
+.sidebar-menu li:hover > a{
+    background-color: #e78103!important;
+    transition: background-color .4s;
+}
+.sidebar-menu li:hover{
+    -webkit-box-shadow: 1px 7px 15px 5px rgba(0,0,0,0.17); 
+    box-shadow: 1px 7px 15px 5px rgba(0,0,0,0.17);
+}
+.sidebar-menu li a{
+    background-color: #ff8c00!important;
+    transition: background-color .4s;
+    color: white!important;
+    border-radius: 8px;
+}
+.sidebar-menu li {
+    margin: 5px;
+    border-radius: 8px;
+}
+.sidebar-mini.sidebar-collapse li {
+    margin: 0px;
+    border-radius: 0px!important;
+}
+.sidebar-mini.sidebar-collapse li a{
+    border-radius: 0px!important;
+}
+.sidebar-mini.sidebar-collapse li li{
+    margin: 0px!important;
+}
+.sidebar-menu li li{
+    margin: 4px!important;
+    border-radius: 8px;
+}
+
+.content .box.box-success {
+    border-top-color: #107CBD!important;
+}
+.search .form-control{
+    width: 400px;
+    border-radius: 8px;
+}
+a.logo:hover{
+    background-color: #0f6faa!important;
+}
+.sidebar-toggle{
+    background-color: #ff8c00!important;
+    padding: -5px;
+}
+.user-panel{
+    display: none;
+}

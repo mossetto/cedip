@@ -29,6 +29,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>recursos/css/estilos-back.css">
   <style>
     .sinpadding
     {   
@@ -1883,13 +1884,13 @@
                 "<i class='fa fa-edit'></i> ",
             '</a>',
             ' <a class="btn btn-success" href="#" onclick = "reporte_historia_clinica('+row.codigo+')";>',
-                "<i class='fa fa-clone'></i> ",
-            '</a>',
-            ' <a class="btn btn-success" href="#" onclick = "eliminar_historia_clinica('+row.codigo+')";>',
-                "<i class='fa fa-trash-o'></i> ",
+                "<i class='fa fa-book'></i> ",
             '</a>',
             ' <a class="btn btn-success" href="#" onclick = "imagenes_historia_clinica('+row.codigo+')";>',
                 "<i class='fa fa-file-image-o'></i> ",
+            '</a>',
+            ' <a class="btn btn-success" href="#" onclick = "eliminar_historia_clinica('+row.codigo+')";>',
+                "<i class='fa fa-trash-o'></i> ",
             '</a>',
             ' <a style="display:none;" class="btn btn-success" href="<?php echo base_url() ?>index.php/Secretaria/ver_odontograma/'+row.codigo+'">',
                 'Odontograma',
