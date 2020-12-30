@@ -2094,6 +2094,7 @@ class Super_Controller extends CI_Controller{
 		{
 			if ((($this->session->userdata("tipo_usuario") == "1"  || $this->session->userdata("tipo_usuario") == "2" || $this->session->userdata("tipo_usuario") == "3" || $this->session->userdata("tipo_usuario") == "4") && $this->session->userdata("operativo") == "si")) 
 			{
+				
 				$this->load->model("Historias_Clinicas_model");
 				$this->load->model("Profesionales_model");
 				$this->load->model("Especialidades_model");
@@ -2110,7 +2111,6 @@ class Super_Controller extends CI_Controller{
 
 				
 				$imagenes_actuales = unserialize($historia_clinica[0]["imagenes"]);
-
 
 				if($imagenes_a_eliminar != null)
 				{
@@ -2137,20 +2137,22 @@ class Super_Controller extends CI_Controller{
 					}  
 
 					$imagenes_actuales= $arreglo_nuevo_actuales;
-				}
+				}				
 
 				for($i=1; $i <= count($_FILES);$i++)
 				{
 					$respuesta = $this->subir_imagen_historia_clinica("imagen".$i);
+					//var_dump($respuesta);
 
 					if($respuesta["respuesta"]) // si se sube la imagen
 					{
 					   $imagenes_actuales[] = $respuesta["nombre_imagen"];
 					}
-				}
 
+
+				}
 				// fin subida de imagen
-				
+			
 				$examen = $this->input->post("examen_editar_historia_clinica");
 				$conclusion = $this->input->post("conclusion_editar_historia_clinica");
 				$fecha = $this->input->post("fecha_editar_historia_clinica");
@@ -2167,6 +2169,7 @@ class Super_Controller extends CI_Controller{
 				{
 					redirect("secretaria/abm_historias_clinicas");
 				}
+				/*	*/
 			}
 			else
 			{
