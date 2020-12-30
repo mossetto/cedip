@@ -38,7 +38,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Login</strong> acceso </h1>
+                            <!-- <h1>Acceso administrativo</h1> -->
                             <div class="description">
                             	
                             </div>
@@ -49,11 +49,10 @@
                             <div class="form-box">
                                 <div class="form-top">
                                     <div class="form-top-left">
-                                        <h3>Acceso de usuario</h3>
-                                        <label><?php echo $salida_error; ?></label>
+                                        <img src="<?php echo base_url(); ?>recursos/img/acceso.png" alt='' />
                                     </div>
                                     <div class="form-top-right">
-                                        <img src="<?php echo base_url(); ?>recursos/img/acceso.png" alt='' />
+                                        Acceso administrativo
                                     </div>
                                 </div>
                              <div class="form-bottom">
@@ -61,12 +60,12 @@
                                 echo form_open('welcome/validar_usuario', $atributes);?>
                                     <div class="form-group">
                                         <label class="sr-only" for="form-username">Username</label>
-                                        <input type="text" name="usuario" placeholder="usuario..." 
+                                        <input type="text" name="usuario" placeholder="Usuario" 
                                                class="form-username form-control" id="form-username" required='required'>
                                     </div>
                                     <div class="form-group">
                                         <label class="sr-only" for="form-password">Password</label>
-                                        <input type="password" name="pass" placeholder="pass..." 
+                                        <input type="password" name="pass" placeholder="Contraseña" 
                                                class="form-password form-control" id="form-password" required='required'>
                                     </div>
                                     <div class="form-group">
@@ -80,7 +79,7 @@
 //                                             ?>
 					</select>-->
                                     </div>
-                                    <button type="submit" class="btn">Ingresar!</button>
+                                    <button type="submit" class="btn">Acceder</button>
                                 <?php echo form_close();?>
                               </div>
                             </div>

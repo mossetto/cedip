@@ -1880,16 +1880,16 @@
     function optionsFormatterHistoriasClinicas(value, row, index) {
         return [   
                 
-            '<a class="btn btn-success" href="#" onclick = "editar_historia_clinica('+row.codigo+')";>',
+            '<a class="btn btn-ambh" href="#" onclick = "editar_historia_clinica('+row.codigo+')";>',
                 "<i class='fa fa-edit'></i> ",
             '</a>',
-            ' <a class="btn btn-success" href="#" onclick = "reporte_historia_clinica('+row.codigo+')";>',
+            ' <a class="btn btn-ambh" href="#" onclick = "reporte_historia_clinica('+row.codigo+')";>',
                 "<i class='fa fa-book'></i> ",
             '</a>',
-            ' <a class="btn btn-success" href="#" onclick = "imagenes_historia_clinica('+row.codigo+')";>',
+            ' <a class="btn btn-ambh" href="#" onclick = "imagenes_historia_clinica('+row.codigo+')";>',
                 "<i class='fa fa-file-image-o'></i> ",
             '</a>',
-            ' <a class="btn btn-success" href="#" onclick = "eliminar_historia_clinica('+row.codigo+')";>',
+            ' <a class="btn btn-danger" href="#" onclick = "eliminar_historia_clinica('+row.codigo+')";>',
                 "<i class='fa fa-trash-o'></i> ",
             '</a>',
             ' <a style="display:none;" class="btn btn-success" href="<?php echo base_url() ?>index.php/Secretaria/ver_odontograma/'+row.codigo+'">',

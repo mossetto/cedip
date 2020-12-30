@@ -387,10 +387,10 @@ class Pagina implements Pagina_interface
                   <!-- Logo -->
                   <a href='' class='logo'>
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class='logo-mini'><b>A</b>dm</span>
+                    <span class='logo-mini'><img src='". base_url(PATH_PANEL)."/images/logo.png' alt='homepage' class='light-logo' style=' width: 40px; height: auto;' /></span>
                     <!-- logo for regular state and mobile devices -->
                     <span class='logo-lg'>
-                      <img src='". base_url(PATH_PANEL)."/images/logo.png' alt='homepage' class='light-logo' style=' width: 50%; height: 50%;' />
+                      <img src='". base_url(PATH_PANEL)."/images/logo.png' alt='homepage' class='light-logo' style=' width: 57px; height: auto;' />
                     </span>
                   </a>
 
@@ -2259,7 +2259,7 @@ class Pagina implements Pagina_interface
 
                     <div class='col-md-6' style='text-align: center;' id='div_input_agregar_img'>
                       <p><b>Agregar una imagen</b></p>
-                      <button type='button' class='btn btn-danger' onclick='agregar_input_imagen_historia_clinica()'><i class='fa fa-plus'></i></button>
+                      <button type='button' class='btn btn-success' onclick='agregar_input_imagen_historia_clinica()'><i class='fa fa-plus'></i></button>
                     </div>
 
                     
@@ -2349,7 +2349,7 @@ class Pagina implements Pagina_interface
                         {
                           $html.="
                             <div class='col-md-6'>
-                            <p id='btn_eliminar_".($i)."' class='btn btn-default' onclick='eliminar_imagen_editar_historia(".($i).",&#39;".$imagenes[$i]."&#39;)'><i class='fa fa-trash-o'></i></p>
+                            <p id='btn_eliminar_".($i)."' class='btn btn-danger' onclick='eliminar_imagen_editar_historia(".($i).",&#39;".$imagenes[$i]."&#39;)'><i class='fa fa-trash-o'></i></p>
                             <img src='".base_url()."recursos/img/pacientes/".$imagenes[$i]."' width='100' height='100'/>
                           </div>";
                         }
@@ -2358,7 +2358,7 @@ class Pagina implements Pagina_interface
                         </div>
                         <div class='col-md-6' style='text-align: center;' id='div_input_agregar_img'>
                           <p><b>Agregar una imagen</b></p>
-                          <button type='button' class='btn btn-danger' onclick='agregar_input_editar_imagen_historia_clinica()'><i class='fa fa-plus'></i></button>
+                          <button type='button' class='btn btn-success' onclick='agregar_input_editar_imagen_historia_clinica()'><i class='fa fa-plus'></i></button>
                         </div>
                         <div class='col-md-12' style='margin-top: 10px;'>
                             <input type='button' onclick='subir_formulario_editar_historia_clinica()' id='' name='' class='form-control btn btn-success' value='Guardar'>
@@ -3426,7 +3426,7 @@ class Pagina implements Pagina_interface
                 </div>
                 
                 <div class='box-body' id='tabla_historias_clinicas'>
-                    <div class='col-md-12'>";
+                    <div class='col-md-12 barra-imagenes'>";
           
                     $imagenes = unserialize($historia[0]["imagenes"]);
 
