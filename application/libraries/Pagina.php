@@ -2345,14 +2345,17 @@ class Pagina implements Pagina_interface
 
                         $imagenes = unserialize($historia_clinica["imagenes"]);
 
-                        for($i=0; $i < count($imagenes);$i++)
-                        {
-                          $html.="
-                            <div class='col-md-6'>
-                            <p id='btn_eliminar_".($i)."' class='btn btn-danger' onclick='eliminar_imagen_editar_historia(".($i).",&#39;".$imagenes[$i]."&#39;)'><i class='fa fa-trash-o'></i></p>
-                            <img src='".base_url()."recursos/img/pacientes/".$imagenes[$i]."' width='100' height='100'/>
-                          </div>";
-                        }
+                        if(is_array($imagenes)){
+
+                          for($i=0; $i < count($imagenes);$i++)
+                            {
+                            $html.="
+                              <div class='col-md-6'>
+                              <p id='btn_eliminar_".($i)."' class='btn btn-danger' onclick='eliminar_imagen_editar_historia(".($i).",&#39;".$imagenes[$i]."&#39;)'><i class='fa fa-trash-o'></i></p>
+                              <img src='".base_url()."recursos/img/pacientes/".$imagenes[$i]."' width='100' height='100'/>
+                            </div>";
+                          }
+                      }
 
                         $html.="
                         </div>

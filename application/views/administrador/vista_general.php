@@ -212,7 +212,7 @@
                                     <div class='row'>
                                             <div class="col-md-12">
                                                     <div style="text-align: center;">
-                                                            <img src="imagen" id="imagen_actual_dato_home" width="200"/>
+                                                            <!--<img src="imagen" id="imagen_actual_dato_home" width="200"/>-->
                                                     </div>
                                             </div>
                                             <div class="col-md-12">
@@ -1923,7 +1923,7 @@
           data: {codigo:codigo},
           beforeSend: function (event){},
           success: function (data) {
-              imagenes_a_eliminar= new Array();
+              imagenes_a_eliminar = new Array();
               data= JSON.parse(data);
               $("#cuerpo-modal").html(data);
               $("#modal").modal("show");

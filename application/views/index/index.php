@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<a class="nav-link" href="#contacto">Contacto</a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link btn-acceso" href="<?= base_url(); ?>index.php/index/login">Acceso</a>
+			<a class="nav-link btn-acceso" href="<?= base_url(); ?>index/login">Acceso</a>
 		  </li>
 		</ul>
 	  </div>
