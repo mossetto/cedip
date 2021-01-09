@@ -3452,7 +3452,7 @@ class Pagina implements Pagina_interface
                      }
             $html.="</div>
                     <div>
-                        <img id='visor_imagenes' src='' width='400' style='margin-top: 20px;' data-imagezoom='true' alt=''/>
+                        <img class='col-md-6' id='visor_imagenes' src='' width='400' style='margin-top: 20px;' data-imagezoom='true' alt=''/>
                     </div>
                 </div>
         </div><!-- /.box -->
