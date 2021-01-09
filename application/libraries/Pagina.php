@@ -2258,7 +2258,7 @@ class Pagina implements Pagina_interface
                     </div>
 
                     <div class='col-md-6' style='text-align: center;' id='div_input_agregar_img'>
-                      <p><b>Agregar una imagen</b></p>
+                      <p><b>Agregar una imagen (Solo Formato JPG, JPEG, PNG - Menos de 1MB)</b></p>
                       <button type='button' class='btn btn-success' onclick='agregar_input_imagen_historia_clinica()'><i class='fa fa-plus'></i></button>
                     </div>
 
@@ -2360,7 +2360,7 @@ class Pagina implements Pagina_interface
                         $html.="
                         </div>
                         <div class='col-md-6' style='text-align: center;' id='div_input_agregar_img'>
-                          <p><b>Agregar una imagen</b></p>
+                          <p><b>Agregar una imagen (Solo Formato JPG, JPEG, PNG - Menos de 1MB)</b></p>
                           <button type='button' class='btn btn-success' onclick='agregar_input_editar_imagen_historia_clinica()'><i class='fa fa-plus'></i></button>
                         </div>
                         <div class='col-md-12' style='margin-top: 10px;'>

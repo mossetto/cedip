@@ -794,9 +794,10 @@ class Super_Controller extends CI_Controller{
 				// SUBIDA DE IMAGEN
 				$imagen ="";
 				$config['upload_path'] = "./recursos/img/empleados/";
-				$config['allowed_types'] = "jpg";
+				$config['allowed_types'] = "jpg|jpeg|png";
+				$config ['max_size'] = '1000';
 
-					$this->load->library("upload",$config);
+				$this->load->library("upload",$config);
 
 				if($this->upload->do_upload("imagen")) // si se sube la imagen
 				{
@@ -2018,8 +2019,8 @@ class Super_Controller extends CI_Controller{
 	
 		// SUBIENDO LA IMAGEN ORIGINAL
 		$config_subida_principal['upload_path'] = "./recursos/img/temporales/";
-		$config_subida_principal['allowed_types']        = 'jpg|jpeg|JPEG|JPG';
-		$config_subida_principal['max_size']             = 5000;
+		$config_subida_principal['allowed_types']        = 'jpg|jpeg|JPEG|JPG|png';
+		$config_subida_principal['max_size']             = 1024;
 		$config_subida_principal['max_width']            = 5000;
 		$config_subida_principal['max_height']           = 5000;
 		$config_subida_principal["overwrite"]=false;
@@ -2030,9 +2031,8 @@ class Super_Controller extends CI_Controller{
 
 		if ( ! $this->upload->do_upload($name_post))
 		{
-			$respuesta["respuesta"]=false;
-			//echo $this->upload->display_errors();
-
+			$respuesta["respuesta"] = false;
+			$respuesta["error"] = $this->upload->display_errors();
 		}
 		else
 		{
@@ -2089,12 +2089,14 @@ class Super_Controller extends CI_Controller{
 	}
 
 	public function actualizar_historia_clinica()
-	{ 
+	{
+
 		if($this->input->post())
 		{
+		
 			if ((($this->session->userdata("tipo_usuario") == "1"  || $this->session->userdata("tipo_usuario") == "2" || $this->session->userdata("tipo_usuario") == "3" || $this->session->userdata("tipo_usuario") == "4") && $this->session->userdata("operativo") == "si")) 
 			{
-				
+
 				$this->load->model("Historias_Clinicas_model");
 				$this->load->model("Profesionales_model");
 				$this->load->model("Especialidades_model");
@@ -2107,7 +2109,7 @@ class Super_Controller extends CI_Controller{
 				$historia_clinica = $this->Historias_Clinicas_model->getHistoriaClinica($codigo);
 				
 				// SUBIDA DE IMAGEN
-				$imagenes_a_eliminar =json_decode($this->input->post("imagenes_a_eliminar_historia"),true);
+				$imagenes_a_eliminar = json_decode($this->input->post("imagenes_a_eliminar_historia"),true);
 
 				
 				$imagenes_actuales = unserialize($historia_clinica[0]["imagenes"]);
@@ -2141,18 +2143,20 @@ class Super_Controller extends CI_Controller{
 
 				for($i=1; $i <= count($_FILES);$i++)
 				{
+
 					$respuesta = $this->subir_imagen_historia_clinica("imagen".$i);
-					//var_dump($respuesta);
+
 
 					if($respuesta["respuesta"]) // si se sube la imagen
 					{
-					   $imagenes_actuales[] = $respuesta["nombre_imagen"];
+						$imagenes_actuales[] = $respuesta["nombre_imagen"];
+					}else{
+						//MOSTRAR ERROR $respuesta["error"];
 					}
-
-
 				}
+
 				// fin subida de imagen
-			
+
 				$examen = $this->input->post("examen_editar_historia_clinica");
 				$conclusion = $this->input->post("conclusion_editar_historia_clinica");
 				$fecha = $this->input->post("fecha_editar_historia_clinica");
@@ -2169,12 +2173,12 @@ class Super_Controller extends CI_Controller{
 				{
 					redirect("secretaria/abm_historias_clinicas");
 				}
-				/*	*/
 			}
 			else
 			{
 				redirect("acceso");
 			}
+
 		}
 		else
 		{

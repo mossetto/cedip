@@ -577,9 +577,10 @@ class Administrador extends Super_Controller {
 		   // SUBIDA DE IMAGEN
 				$imagen ="";
 				$config['upload_path'] = "./recursos/home/images/";
-				$config['allowed_types'] = "jpg|png";
+				$config['allowed_types'] = "jpg|jpeg|png";
+				$config ['max_size'] = '1000';
 
-					$this->load->library("upload",$config);
+				$this->load->library("upload",$config);
 
 				if($this->upload->do_upload("imagen_actualizar_dato_home")) // si se sube la imagen
 				{
@@ -755,6 +756,7 @@ class Administrador extends Super_Controller {
    
 	public function actualizar_historia_clinica()
 	{ 
+
 		if($this->input->post())
 		{
 			if ($this->administrador->verificar_acceso() && $this->administrador->verificar_operatividad()) 
@@ -768,7 +770,7 @@ class Administrador extends Super_Controller {
 				
 				$config['upload_path'] = "./recursos/img/pacientes/";
 				$config['allowed_types'] = "jpg|jpeg|png";
-				$config ['max_size'] = '1024';
+				$config ['max_size'] = '1000';
 
 				$this->load->library("upload",$config);
 

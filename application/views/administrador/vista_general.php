@@ -493,7 +493,7 @@
 
       if(!extensiones)
       {
-        ext= ['jpg','jpeg'];
+        ext= ['jpg','jpeg','png'];
       }
       else
       {
@@ -1150,6 +1150,7 @@
     
     function actualizar_historia_clinica(codigo)
     {
+      alert("111");
         
         var observaciones = $("#observaciones_actualizar_historia_clinica").val();
         var imagen1 = $("#imagen1_actualizar_historia_clinica").val();
