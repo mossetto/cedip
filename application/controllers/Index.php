@@ -24,6 +24,7 @@ class Index extends CI_Controller {
 		if($this->session->userdata('dni')){
 			redirect('index','refresh');
 		}
+		$data['message'] = '';
 		//
 		if($this->input->post('username') && $this->input->post('password')){
 			$resultado = $this->Pacientes_model->getPacienteInicioSesion($this->input->post("username"),$this->input->post("password"));
@@ -36,9 +37,11 @@ class Index extends CI_Controller {
 				);
 				$this->session->set_userdata($datasession);
 				redirect('index','refresh');
+			}else{
+				$data['message'] = 'Usuario o Contraseña Incorrecta, Por favor intente nuevamente.';
 			}
 		}
-		$this->load->view('index/login');
+		$this->load->view('index/login',$data);
 	}
 	//
 	function logout(){
@@ -212,7 +215,12 @@ class Index extends CI_Controller {
 		if ($this->input->post()){
 			$fecha1 = $this->input->post('fecha1');
 			$fecha2 = $this->input->post('fecha2');
-			$data['historial'] = $this->Pacientes_model->getHistorialMedicoPacienteDate($this->session->userdata("dni"),$fecha1,$fecha2);
+
+			if($fecha1 == '' or $fecha2 == ''){
+				$data['historial'] = $this->Pacientes_model->getHistorialMedicoPaciente($this->session->userdata("dni"));
+			}else{
+				$data['historial'] = $this->Pacientes_model->getHistorialMedicoPacienteDate($this->session->userdata("dni"),$fecha1,$fecha2);
+			}
 		}
 		//
 		$this->load->view('index/estudios_user',$data);

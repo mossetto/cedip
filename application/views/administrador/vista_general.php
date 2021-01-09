@@ -379,7 +379,7 @@
 
       if(!respuesta)
       {
-        alert("SOLO SE ADMITEN FORMATOS JPG EN LAS IMAGENES");
+        alert("SOLO SE ADMITEN FORMATOS JPG y PNG EN LAS IMAGENES");
       }
       else
       {
@@ -479,7 +479,7 @@
 
       if(!respuesta)
       {
-        alert("SOLO SE ADMITEN FORMATOS JPG EN LAS IMAGENES");
+        alert("SOLO SE ADMITEN FORMATOS JPG y PNG EN LAS IMAGENES");
       }
       else
       {

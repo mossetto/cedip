@@ -62,6 +62,27 @@ $form_attributes = array(
 </style>
 </head>
 <body style="background-color: #999999;">
+
+<?php
+if (is_null($message) <> 1){
+	if ($message){
+?>
+		<!-- Notificacion -->
+		<div class="notificacion" id="notificación" onclick="cerrar(this)">
+			<h3>Iniciar sesión</h3>
+			<p><?= $message ?></p>
+			<button>Aceptar</button>
+		</div>
+		<script>
+			function cerrar(notificacion){
+				notificacion.style.display="none";
+			}
+		</script>
+		<!-- Fin notificacion -->
+<?php
+	}
+}
+?>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 ">
