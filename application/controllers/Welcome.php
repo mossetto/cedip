@@ -81,9 +81,7 @@ class Welcome extends CI_Controller {
 				  // HACER COMPROBACION DE HORARIO Y DIA.
 					
 				  // COMPROBANDO DIA:
-					
-					
-					
+										
 					$this->load->model("Empleados_model");
 					$dia_habilitado = $this->Empleados_model->getDiaHabilitado($this->session->userdata("dni"));
 					$dia_habilitado = (int)$dia_habilitado["dia_habilitado"];
@@ -153,8 +151,9 @@ class Welcome extends CI_Controller {
 					}    
 				}
 				else{
-					$output['salida_error']="datos incorrectos, ingreselos nuevamente";
+					$output['salida_error']="Datos incorrectos, ingreselos nuevamente";
 					$this->load->view('loguin', $output);
+					
 				}
 			}
 	}

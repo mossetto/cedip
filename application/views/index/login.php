@@ -28,7 +28,7 @@ $form_attributes = array(
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Cuenta - Seguridad Informática - Sistemas de Seguridad</title>
+	<title>Cedip - Centro Médico</title>
 	<link rel="shortcut icon" href="<?= base_url(PATH_ONEPAGE)?>/images/favicon.png">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -62,6 +62,27 @@ $form_attributes = array(
 </style>
 </head>
 <body style="background-color: #999999;">
+
+<?php
+if (is_null($message) <> 1){
+	if ($message){
+?>
+		<!-- Notificacion -->
+		<div class="notificacion" id="notificación" onclick="cerrar(this)">
+			<h3>Iniciar sesión</h3>
+			<p><?= $message ?></p>
+			<button>Aceptar</button>
+		</div>
+		<script>
+			function cerrar(notificacion){
+				notificacion.style.display="none";
+			}
+		</script>
+		<!-- Fin notificacion -->
+<?php
+	}
+}
+?>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 ">

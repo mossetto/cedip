@@ -760,7 +760,6 @@ class Administrador extends Super_Controller {
 			if ($this->administrador->verificar_acceso() && $this->administrador->verificar_operatividad()) 
 			{
 				
-			   
 				// SUBIDA DE IMAGEN
 				$imagen1 ="";
 				$imagen2 ="";
@@ -768,7 +767,8 @@ class Administrador extends Super_Controller {
 				$imagen4 ="";
 				
 				$config['upload_path'] = "./recursos/img/pacientes/";
-				$config['allowed_types'] = "jpg";
+				$config['allowed_types'] = "jpg|jpeg|png";
+				$config ['max_size'] = '1024';
 
 				$this->load->library("upload",$config);
 
@@ -936,11 +936,8 @@ class Administrador extends Super_Controller {
 					$vista["config"] = $this->pagina->generar_configuraciones();
 				}
 				
-				
 				$this->load->view('administrador/vista_general.php',$vista);
 				
-			
-
 		}else{
 			redirect("acceso");
 		}

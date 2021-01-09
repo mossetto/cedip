@@ -2,14 +2,18 @@
     width: 182px;
 }
 
-#tabla_historias_clinicas .fixed-table-body tbody td:nth-child(5) a{
-    background-color:#0f6faa;
-    border: 1px solid #0f6faa;
+#tabla_historias_clinicas .fixed-table-body .btn-ambh{
+    background-color:#ff8c00;
+    color: white;
+    border: 1px solid #ff8c00;
 }
-#tabla_historias_clinicas .fixed-table-body tbody td:nth-child(5) a:hover{
-    background-color:#1c7cb8;
-    border: 1px solid #0f6faa;
+#tabla_historias_clinicas .fixed-table-body .btn-ambh:hover{
+    background-color:#da7800;
+    border: 1px solid #ff8c00;
 }
+
+#tabla_historias_clinicas .fixed-table-body .btn{
+    margin-bottom: 3px;}
 
 #tabla_historias_clinicas .th-inner{
     text-transform: capitalize;
@@ -31,15 +35,15 @@
 }
 
 .sidebar-menu li:hover > a{
-    background-color: #e78103!important;
+    background-color: #1c7cb8!important;
     transition: background-color .4s;
 }
-.sidebar-menu li:hover{
+.sidebar-menu li{
     -webkit-box-shadow: 1px 7px 15px 5px rgba(0,0,0,0.17); 
     box-shadow: 1px 7px 15px 5px rgba(0,0,0,0.17);
 }
 .sidebar-menu li a{
-    background-color: #ff8c00!important;
+    background-color: #0f6faa!important;
     transition: background-color .4s;
     color: white!important;
     border-radius: 8px;
@@ -47,6 +51,9 @@
 .sidebar-menu li {
     margin: 5px;
     border-radius: 8px;
+}
+.sidebar-menu{
+    overflow: visible;
 }
 .sidebar-mini.sidebar-collapse li {
     margin: 0px;
@@ -61,6 +68,11 @@
 .sidebar-menu li li{
     margin: 4px!important;
     border-radius: 8px;
+}
+.sidebar-menu ul.treeview-menu{
+    border-left: 0!important;
+    padding-left: 0!important;
+    padding-top: 0!important;
 }
 
 .content .box.box-success {
@@ -79,4 +91,55 @@ a.logo:hover{
 }
 .user-panel{
     display: none;
+}
+
+
+/* modal editar */
+#contenedor_editar_imagenes_editar_historia > div{
+    justify-content: center;
+    margin: 20px;
+    width: 96%;
+    display: flex;
+}
+#contenedor_editar_imagenes_editar_historia > div p{
+    margin-right: 5px;
+    display: table;
+}
+#div_input_agregar_img{
+    width: 100%;
+}
+#contenedor_editar_imagenes_editar_historia label{
+    margin-right: 5px;
+}
+#contenedor_editar_imagenes_editar_historia input{
+    padding: 10px;
+}
+#div_input_agregar_img{
+    margin-bottom: 30px;
+}
+
+/* imagenes */
+.barra-imagenes{
+    background-color: #dce3e8;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+.barra-imagenes > img{
+    transition: transform .3s;
+    -webkit-box-shadow: 1px 7px 15px 5px rgba(0,0,0,0.17); 
+    box-shadow: 1px 7px 15px 5px rgba(0,0,0,0.17);
+}
+.barra-imagenes > img:hover{
+    transform: scale(1.05);
+    transition: transform .3s;
+    cursor: pointer
+}
+
+.wrap-miniaturas-edit{
+    background-color: #dce3e8;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+.boton-eliminar-img{
+    margin-bottom: 5px;
 }

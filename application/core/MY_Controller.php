@@ -2094,6 +2094,7 @@ class Super_Controller extends CI_Controller{
 		{
 			if ((($this->session->userdata("tipo_usuario") == "1"  || $this->session->userdata("tipo_usuario") == "2" || $this->session->userdata("tipo_usuario") == "3" || $this->session->userdata("tipo_usuario") == "4") && $this->session->userdata("operativo") == "si")) 
 			{
+				
 				$this->load->model("Historias_Clinicas_model");
 				$this->load->model("Profesionales_model");
 				$this->load->model("Especialidades_model");
@@ -2110,7 +2111,6 @@ class Super_Controller extends CI_Controller{
 
 				
 				$imagenes_actuales = unserialize($historia_clinica[0]["imagenes"]);
-
 
 				if($imagenes_a_eliminar != null)
 				{
@@ -2137,20 +2137,22 @@ class Super_Controller extends CI_Controller{
 					}  
 
 					$imagenes_actuales= $arreglo_nuevo_actuales;
-				}
+				}				
 
 				for($i=1; $i <= count($_FILES);$i++)
 				{
 					$respuesta = $this->subir_imagen_historia_clinica("imagen".$i);
+					//var_dump($respuesta);
 
 					if($respuesta["respuesta"]) // si se sube la imagen
 					{
 					   $imagenes_actuales[] = $respuesta["nombre_imagen"];
 					}
-				}
 
+
+				}
 				// fin subida de imagen
-				
+			
 				$examen = $this->input->post("examen_editar_historia_clinica");
 				$conclusion = $this->input->post("conclusion_editar_historia_clinica");
 				$fecha = $this->input->post("fecha_editar_historia_clinica");
@@ -2167,6 +2169,7 @@ class Super_Controller extends CI_Controller{
 				{
 					redirect("secretaria/abm_historias_clinicas");
 				}
+				/*	*/
 			}
 			else
 			{
@@ -2262,7 +2265,8 @@ class Super_Controller extends CI_Controller{
 			$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
  
 			// se pueden modificar en el archivo tcpdf_config.php de libraries/config
-			$pdf->SetMargins(0, 50, 0);
+			//$pdf->SetMargins(0, 50, 0);
+			$pdf->SetMargins(15, 50, 15);
 			$pdf->SetHeaderMargin(0);
 			$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 			// se pueden modificar en el archivo tcpdf_config.php de libraries/config
@@ -2295,13 +2299,13 @@ class Super_Controller extends CI_Controller{
 			}*/
 			//preparamos y maquetamos el contenido a crear
 			$html = "<div style='margin-top: 10px;margin-left: 20px !important;font-family: Arial;'>";
-			$html .= "<p>&nbsp;&nbsp;&nbsp;<b>Nombre: </b> $paciente</p>
-					  <p>&nbsp;&nbsp;&nbsp;<b>Medico Solicitante: </b> ".$historia_clinica[0]["medico"]."</p>
-					  <p>&nbsp;&nbsp;&nbsp;<b>Fecha: </b>".$fecha->format('d-m-Y')."</p>
-					  <p>&nbsp;&nbsp;&nbsp;<b>Obra social: </b>".$obra_social["razon_social"]."</p>
-					  <p>&nbsp;&nbsp;&nbsp;<b>Especialidad: </b>".$especialidad["especialidad"]."</p>
-					  <p style='margin-top: 10px;'>&nbsp;&nbsp;&nbsp;<b>Examen:</b></p><p>&nbsp;&nbsp;&nbsp;".$historia_clinica[0]["examen"]."</p>
-					  <p style='margin-top: 10px;'>&nbsp;&nbsp;&nbsp;<b>Conclusion:</b></p><p>&nbsp;&nbsp;&nbsp;".$historia_clinica[0]["conclusion"]."</p>";
+			$html .= "<p><b>Nombre: </b> $paciente</p>
+					  <p><b>Medico Solicitante: </b> ".$historia_clinica[0]["medico"]."</p>
+					  <p><b>Fecha: </b>".$fecha->format('d-m-Y')."</p>
+					  <p><b>Obra social: </b>".$obra_social["razon_social"]."</p>
+					  <p><b>Especialidad: </b>".$especialidad["especialidad"]."</p>
+					  <p style='margin-top: 10px;'><b>Examen:</b></p><p>".$historia_clinica[0]["examen"]."</p>
+					  <p style='margin-top: 10px;'><b>Conclusion:</b></p><p>&nbsp;&nbsp;&nbsp;".$historia_clinica[0]["conclusion"]."</p>";
 			$html.="</div>";
  
 			//provincias es la respuesta de la función getProvinciasSeleccionadas($provincia) del modelo

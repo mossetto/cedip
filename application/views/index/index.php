@@ -44,17 +44,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<a class="nav-link" href="#contacto">Contacto</a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link btn-acceso" href="<?= base_url(); ?>index.php/index/login">Acceso</a>
+			<a class="nav-link btn-acceso" href="<?= base_url(); ?>index/login">Acceso</a>
 		  </li>
 		</ul>
 	  </div>
-	  <a href="#domain" class="domain ml-3" data-toggle="modal" data-target="#DomainModal">
-		<div class="hamburger1">
-		  <div></div>
-		  <div></div>
-		  <div></div>
+
+		<div class="mobile-acceso-wrap">
+			<li class="nav-item">
+				<a class="nav-link btn-acceso acceso-mobile" href="<?= base_url(); ?>index/login">Acceso</a>
+			</li>
+			<a href="#domain" class="domain ml-3" data-toggle="modal" data-target="#DomainModal">
+
+			<div class="hamburger1">
+			<div></div>
+			<div></div>
+			<div></div>
+			</div>
+			</a>
+
 		</div>
-	  </a>
+
 	</div>
   </nav>
 </section>
@@ -88,9 +97,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</li>
 				<li class="nav-item">
 				  <a class="nav-link" href="#contacto">Contacto</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link btn-acceso" href="#">Acceso</a>
 				</li>
 			  </ul>
 			</nav>

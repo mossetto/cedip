@@ -387,9 +387,11 @@ class Pagina implements Pagina_interface
                   <!-- Logo -->
                   <a href='' class='logo'>
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class='logo-mini'><b>A</b>dm</span>
+                    <span class='logo-mini'><img src='". base_url(PATH_PANEL)."/images/logo.png' alt='homepage' class='light-logo' style=' width: 40px; height: auto;' /></span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class='logo-lg'><b>Cedip</b></span>
+                    <span class='logo-lg'>
+                      <img src='". base_url(PATH_PANEL)."/images/logo.png' alt='homepage' class='light-logo' style=' width: 57px; height: auto;' />
+                    </span>
                   </a>
 
                   <!-- Header Navbar -->
@@ -2245,7 +2247,7 @@ class Pagina implements Pagina_interface
 
                     
                     <div class='col-md-12'>
-                      <p class='text-danger'><strong>Solo imagenes JPG</strong></p>
+                      <p class='text-danger'><strong>Formato JPG o PNG hasta 1MB</strong></p>
                     </div>
 
                     <div id='contenedor_agregar_imagenes_agregar_historia'>
@@ -2257,7 +2259,7 @@ class Pagina implements Pagina_interface
 
                     <div class='col-md-6' style='text-align: center;' id='div_input_agregar_img'>
                       <p><b>Agregar una imagen</b></p>
-                      <button type='button' class='btn btn-danger' onclick='agregar_input_imagen_historia_clinica()'><i class='fa fa-plus'></i></button>
+                      <button type='button' class='btn btn-success' onclick='agregar_input_imagen_historia_clinica()'><i class='fa fa-plus'></i></button>
                     </div>
 
                     
@@ -2339,24 +2341,32 @@ class Pagina implements Pagina_interface
 
                         <input id='imagenes_a_eliminar_historia' name='imagenes_a_eliminar_historia' type='hidden'>
 
-                        <div id='contenedor_editar_imagenes_editar_historia'>";
+                        <div id='contenedor_editar_imagenes_editar_historia'> <div class='col-md-12 wrap-miniaturas-edit'>";
 
                         $imagenes = unserialize($historia_clinica["imagenes"]);
 
-                        for($i=0; $i < count($imagenes);$i++)
-                        {
-                          $html.="
-                            <div class='col-md-6'>
-                            <p id='btn_eliminar_".($i)."' class='btn btn-default' onclick='eliminar_imagen_editar_historia(".($i).",&#39;".$imagenes[$i]."&#39;)'><i class='fa fa-trash-o'></i></p>
-                            <img src='".base_url()."recursos/img/pacientes/".$imagenes[$i]."' width='100' height='100'/>
-                          </div>";
-                        }
+                        if(is_array($imagenes)){
+
+                          for($i=0; $i < count($imagenes);$i++)
+                            {
+                            $html.="
+                              <div class='col-md-3'>
+                              <p id='btn_eliminar_".($i)."' class='btn btn-danger boton-eliminar-img' onclick='eliminar_imagen_editar_historia(".($i).",&#39;".$imagenes[$i]."&#39;)'><i class='fa fa-trash-o'></i></p>
+                              <img src='".base_url()."recursos/img/pacientes/".$imagenes[$i]."' width='100' height='100'/>
+                            </div>";
+                          }
+                      }
 
                         $html.="
                         </div>
+                        <div class='col-md-12 espaciador-edit' style='margin: 0 0;'>
+                        
+                        </div>
+                        </div>
+
                         <div class='col-md-6' style='text-align: center;' id='div_input_agregar_img'>
                           <p><b>Agregar una imagen</b></p>
-                          <button type='button' class='btn btn-danger' onclick='agregar_input_editar_imagen_historia_clinica()'><i class='fa fa-plus'></i></button>
+                          <button type='button' class='btn btn-success' onclick='agregar_input_editar_imagen_historia_clinica()'><i class='fa fa-plus'></i></button>
                         </div>
                         <div class='col-md-12' style='margin-top: 10px;'>
                             <input type='button' onclick='subir_formulario_editar_historia_clinica()' id='' name='' class='form-control btn btn-success' value='Guardar'>
@@ -3424,7 +3434,7 @@ class Pagina implements Pagina_interface
                 </div>
                 
                 <div class='box-body' id='tabla_historias_clinicas'>
-                    <div class='col-md-12'>";
+                    <div class='col-md-12 barra-imagenes'>";
           
                     $imagenes = unserialize($historia[0]["imagenes"]);
 

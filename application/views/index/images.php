@@ -11,7 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <style>
 	body{
-		background-color: #107cbd;
+		background: rgb(92,155,194);
+background: linear-gradient(30deg, rgba(92,155,194,1) 0%, rgba(220,227,232,1) 91%);
 	}
 	.imagen-estudio{
 		height: 100%;
@@ -20,9 +21,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	.imagen-estudio img{
 		width: 100%;
+		margin-right: 0!important;
+		margin-bottom: 10px;
 	}
-	.btn-volver{
-		background-color: white;
+	.btn-volver a{
+		color: white!important;
 	}
 </style>
 <script>
@@ -44,7 +47,7 @@ function getFileName(str) {
 	<div class="container mt-3">
 		<div class="row">
 			<div class="col-12">
-				<button class="btn btn-volver mb-3"><a href="<?= base_url(); ?>index.php/index/estudios">Volver</a></button>
+				<button class="btn btn-primary mb-3 btn-volver"><a href="<?= base_url(); ?>index.php/index/estudios">Volver</a></button>
 			</div>
 <?php
 
@@ -59,7 +62,7 @@ function getFileName(str) {
 					<!--<img src="https://picsum.photos/id/234/180/100" alt="">-->
 					<img src="<?= base_url()."recursos/img/pacientes/".$imagenes[$i]; ?>" style="margin-right: 10px;margin-top: 10px;" alt="imagen">
 				</div>
-				<button class="btn btn-volver ">
+				<button class="btn btn-primary btn-volver">
 					<a style="display: flex; justify-content: center;" href="<?= base_url()."recursos/img/pacientes/".$imagenes[$i]; ?>" download target="_blank">
 					Descargar Archivo
 					</a>

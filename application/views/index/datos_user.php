@@ -75,10 +75,10 @@ $form_attributes = array(
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="Cuenta - Seguridad Electronica - Sistemas de Seguridad">
-	<meta name="Cuenta - Seguridad Electronica - Sistemas de Seguridad" content="Cuenta - Seguridad Electronica - Sistemas de Seguridad">
+	<meta name="keywords" content="Cedip - Centro Médico">
+	<meta name="Cuenta - Cedip - Centro Médico" content="Cedip - Centro Médico">
 	<meta name="robots" content="noindex,nofollow">
-	<title>Cedip - Centro Médico - Cuenta</title>
+	<title>Cedip - Centro Médico</title>
 	<link rel="canonical" href="https://www.wrappixel.com/templates/materialpro-lite/" />
 	<link rel="shortcut icon" href="<?= base_url(PATH_ONEPAGE)?>/images/favicon.png">
 	<!-- Bootstrap Core CSS -->
@@ -161,8 +161,8 @@ $form_attributes = array(
 									<h6 class="card-subtitle">Titular</h6>
 									<div class="row text-center justify-content-md-center">
 										<div class="col-12"><a >
-													<h4 class="card-title m-t-10"># <?= $form['dni']['value']; ?></h4>
-													<h6 class="card-subtitle">Número de Cliente</h6>
+													<h4 class="card-title m-t-10">DNI <?= $form['dni']['value']; ?></h4>
+													
 											</a></div>
 									</div>
 								</center>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>  Centro Medico  </title>
+  <title>  Cedip - Centro Medico  </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -212,7 +212,7 @@
                                     <div class='row'>
                                             <div class="col-md-12">
                                                     <div style="text-align: center;">
-                                                            <img src="imagen" id="imagen_actual_dato_home" width="200"/>
+                                                            <!--<img src="imagen" id="imagen_actual_dato_home" width="200"/>-->
                                                     </div>
                                             </div>
                                             <div class="col-md-12">
@@ -379,7 +379,7 @@
 
       if(!respuesta)
       {
-        alert("SOLO SE ADMITEN FORMATOS JPG EN LAS IMAGENES");
+        alert("SOLO SE ADMITEN FORMATOS JPG y PNG EN LAS IMAGENES");
       }
       else
       {
@@ -479,7 +479,7 @@
 
       if(!respuesta)
       {
-        alert("SOLO SE ADMITEN FORMATOS JPG EN LAS IMAGENES");
+        alert("SOLO SE ADMITEN FORMATOS JPG y PNG EN LAS IMAGENES");
       }
       else
       {
@@ -1880,16 +1880,16 @@
     function optionsFormatterHistoriasClinicas(value, row, index) {
         return [   
                 
-            '<a class="btn btn-success" href="#" onclick = "editar_historia_clinica('+row.codigo+')";>',
+            '<a class="btn btn-ambh" href="#" onclick = "editar_historia_clinica('+row.codigo+')";>',
                 "<i class='fa fa-edit'></i> ",
             '</a>',
-            ' <a class="btn btn-success" href="#" onclick = "reporte_historia_clinica('+row.codigo+')";>',
+            ' <a class="btn btn-ambh" href="#" onclick = "reporte_historia_clinica('+row.codigo+')";>',
                 "<i class='fa fa-book'></i> ",
             '</a>',
-            ' <a class="btn btn-success" href="#" onclick = "imagenes_historia_clinica('+row.codigo+')";>',
+            ' <a class="btn btn-ambh" href="#" onclick = "imagenes_historia_clinica('+row.codigo+')";>',
                 "<i class='fa fa-file-image-o'></i> ",
             '</a>',
-            ' <a class="btn btn-success" href="#" onclick = "eliminar_historia_clinica('+row.codigo+')";>',
+            ' <a class="btn btn-danger" href="#" onclick = "eliminar_historia_clinica('+row.codigo+')";>',
                 "<i class='fa fa-trash-o'></i> ",
             '</a>',
             ' <a style="display:none;" class="btn btn-success" href="<?php echo base_url() ?>index.php/Secretaria/ver_odontograma/'+row.codigo+'">',
@@ -1923,7 +1923,7 @@
           data: {codigo:codigo},
           beforeSend: function (event){},
           success: function (data) {
-              imagenes_a_eliminar= new Array();
+              imagenes_a_eliminar = new Array();
               data= JSON.parse(data);
               $("#cuerpo-modal").html(data);
               $("#modal").modal("show");

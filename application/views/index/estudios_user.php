@@ -26,16 +26,14 @@ $form = array(
 		'aria-label' => 'First name',
 		'class' => 'form-control calendario',
 		'placeholder' => 'dd-mm-yyyy',
-		'name' => 'fecha1',
-		'required' => true
+		'name' => 'fecha1'//,'required' => true
 	),
 	'fecha2' => array(
 		'type'  => 'date',
 		'aria-label' => 'First name',
 		'class' => 'form-control calendario',
 		'placeholder' => 'dd-mm-yyyy',
-		'name' => 'fecha2',
-		'required' => true
+		'name' => 'fecha2'//,'required' => true
 	)
 );
 $form_attributes = array(
@@ -154,6 +152,11 @@ $form_attributes = array(
 										<div class="input-group-append boton-buscar-fecha">
 											<button  type="submit" class="btn btn-primary" type="button">Buscar</button>
 										</div>
+										<?= form_open('',$form_attributes); ?>
+											<div class="input-group-append boton-buscar-fecha">
+												<button  type="submit" class="btn btn-primary" type="button">Limpiar</button>
+											</div>
+										<?= form_close(); ?>
 								</div>
 								<?= form_close(); ?>
 								<div class="table-responsive">
@@ -177,7 +180,9 @@ $form_attributes = array(
 ?>
 
 											<tr>
-												<td><?= $historial_row->fecha; ?></td>
+												<td><?= date('d/m/Y', strtotime($historial_row->fecha)); ?></td>
+
+
 												<td><?= $historial_row->nombre . " ". $historial_row->apellido; ?></td>
 												<td><?= $historial_row->especialidad; ?></td>
 												<td>
