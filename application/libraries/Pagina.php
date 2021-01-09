@@ -2247,7 +2247,7 @@ class Pagina implements Pagina_interface
 
                     
                     <div class='col-md-12'>
-                      <p class='text-danger'><strong>Solo imagenes JPG</strong></p>
+                      <p class='text-danger'><strong>Formato JPG o PNG hasta 1MB</strong></p>
                     </div>
 
                     <div id='contenedor_agregar_imagenes_agregar_historia'>
@@ -2341,7 +2341,7 @@ class Pagina implements Pagina_interface
 
                         <input id='imagenes_a_eliminar_historia' name='imagenes_a_eliminar_historia' type='hidden'>
 
-                        <div id='contenedor_editar_imagenes_editar_historia'>";
+                        <div id='contenedor_editar_imagenes_editar_historia'> <div class='col-md-12 wrap-miniaturas-edit'>";
 
                         $imagenes = unserialize($historia_clinica["imagenes"]);
 
@@ -2350,8 +2350,8 @@ class Pagina implements Pagina_interface
                           for($i=0; $i < count($imagenes);$i++)
                             {
                             $html.="
-                              <div class='col-md-6'>
-                              <p id='btn_eliminar_".($i)."' class='btn btn-danger' onclick='eliminar_imagen_editar_historia(".($i).",&#39;".$imagenes[$i]."&#39;)'><i class='fa fa-trash-o'></i></p>
+                              <div class='col-md-3'>
+                              <p id='btn_eliminar_".($i)."' class='btn btn-danger boton-eliminar-img' onclick='eliminar_imagen_editar_historia(".($i).",&#39;".$imagenes[$i]."&#39;)'><i class='fa fa-trash-o'></i></p>
                               <img src='".base_url()."recursos/img/pacientes/".$imagenes[$i]."' width='100' height='100'/>
                             </div>";
                           }
@@ -2359,6 +2359,11 @@ class Pagina implements Pagina_interface
 
                         $html.="
                         </div>
+                        <div class='col-md-12 espaciador-edit' style='margin: 0 0;'>
+                        
+                        </div>
+                        </div>
+
                         <div class='col-md-6' style='text-align: center;' id='div_input_agregar_img'>
                           <p><b>Agregar una imagen</b></p>
                           <button type='button' class='btn btn-success' onclick='agregar_input_editar_imagen_historia_clinica()'><i class='fa fa-plus'></i></button>

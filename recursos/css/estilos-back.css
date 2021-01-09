@@ -98,7 +98,7 @@ a.logo:hover{
 #contenedor_editar_imagenes_editar_historia > div{
     justify-content: center;
     margin: 20px;
-    width: 90%;
+    width: 96%;
     display: flex;
 }
 #contenedor_editar_imagenes_editar_historia > div p{
@@ -133,4 +133,13 @@ a.logo:hover{
     transform: scale(1.05);
     transition: transform .3s;
     cursor: pointer
+}
+
+.wrap-miniaturas-edit{
+    background-color: #dce3e8;
+    padding: 10px 0;
+    border-radius: 10px;
+}
+.boton-eliminar-img{
+    margin-bottom: 5px;
 }
