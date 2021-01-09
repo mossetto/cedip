@@ -9906,8 +9906,18 @@ h3.title {
 
 .w3l-bootstrap-header .navbar-toggler:hover {
   background-color: #107CBD; }
-
+  .mobile-acceso-wrap .acceso-mobile{
+    display: none;
+    font-weight: bold;
+  }
 @media (max-width: 768px) {
+  .mobile-acceso-wrap{
+    display: flex;
+    flex-direction: row;
+  }
+  .mobile-acceso-wrap .acceso-mobile{
+    display: block;
+  }
   .w3l-bootstrap-header .navbar-expand-md .navbar-collapse {
     display: none !important; }
   .w3l-bootstrap-header .accounts {
@@ -9963,9 +9973,11 @@ h3.title {
   .w3l-bootstrap-header .social-top {
     text-align: center; }
   .w3l-bootstrap-header a.navbar-brand img {
-    width: 50px; }
+    width: 74px; }
   .w3l-bootstrap-header a.navbar-brand {
-    font-size: 30px; } }
+    font-size: 30px; } 
+
+  }
 
 @media (max-width: 384px) {
   .w3l-bootstrap-header .social-top li a {

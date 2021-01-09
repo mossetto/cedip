@@ -153,6 +153,7 @@ class Welcome extends CI_Controller {
 				else{
 					$output['salida_error']="Datos incorrectos, ingreselos nuevamente";
 					$this->load->view('loguin', $output);
+					
 				}
 			}
 	}

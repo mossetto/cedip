@@ -27,7 +27,7 @@ $form_attributes = array(
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Cuenta - Seguridad Informática - Sistemas de Seguridad</title>
+	<title>Cedip - Centro Médico</title>
 	<link rel="shortcut icon" href="<?= base_url(PATH_ONEPAGE)?>/images/favicon.png">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
