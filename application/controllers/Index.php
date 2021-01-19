@@ -28,11 +28,17 @@ class Index extends CI_Controller {
 		//
 		if($this->input->post('username') && $this->input->post('password')){
 			$resultado = $this->Pacientes_model->getPacienteInicioSesion($this->input->post("username"),$this->input->post("password"));
+
+			//$data['message']  = $resultado;
+			//var_dump($resultado[0]);
+			//exit;
+
 			if($resultado && ($resultado[0]['estado'] == 'operativo')) {
 				$datasession = array(
 					'dni' => $resultado[0]['dni'],
 					'tipo_usuario' => 'paciente',
-					//'len_email' => len($resultado[0]['correo']),
+					'email' => $resultado[0]['correo']
+					//'len_email' => len(),
 					//'reintento_correo' => 0
 				);
 				$this->session->set_userdata($datasession);
@@ -56,8 +62,21 @@ class Index extends CI_Controller {
 		//
 		$data['message'] = null;
 		//
-		if($this->input->post('dni') && $this->input->post('email')){
-			if($this->Index_model->getRecuperar($this->input->post('dni'),$this->input->post('email'))->result()){
+		if($this->input->post()){
+			$user = $this->Index_model->getRecuperar($this->input->post('dni'),$this->input->post('email'));
+			if($user->num_rows() == 1){
+				$data['dni'] = $this->input->post('dni');
+				$data['password'] = $user->row()->pass_web;
+				$data['email'] = $this->input->post('email');
+				//
+				$data['titulo_ventana'] = 'Te enviamos un email';
+				$data['mensaje_ventana'] = 'Enviamos un email de recuperación, revisalo para recuperar la contraseña. Gracias';
+				$data['message'] = true;
+				//
+				$this->send_email($data,'recuperar');
+			}else{
+				$data['titulo_ventana'] = 'Informacion';
+				$data['mensaje_ventana'] = 'No hemos encontrado coincidencias en nuestro sistema.';
 				$data['message'] = true;
 			}
 		}
@@ -98,11 +117,13 @@ class Index extends CI_Controller {
 					);
 					$this->Index_model->asignaUsuario($data_model);
 					//
-					//$data['message_title'] = 'Valida tu email';
-					//$data['message_text'] = 'Puedes iniciar session, haz click <a href="#">AQUI</a>';
-					//
 					$data['message_title'] = 'Registro Exitoso';
 					$data['message_text'] = 'Recibirás un email de confirmación, revisalo para completar el registro. Gracias';
+					//
+					$data['dni'] = $this->input->post('dni');
+					$data['email'] = $this->input->post('email');
+					$data['password'] = $this->input->post('password');
+					$this->send_email($data,'registro');
 				}else{
 					//
 					$data['message_title'] = 'Valida tu DNI';
@@ -174,8 +195,13 @@ class Index extends CI_Controller {
 					"tipo_usuario"=>"paciente",
 					"ingresado"=>"true"
 				);
+
+				if($this->session->userdata('email') <> $resultado["correo"]){
+					$data_email['email'] = $resultado["correo"];
+					$this->send_email($data_email,'cambio');
+					$this->session->set_userdata('email', $data_email['email']);
+				}
 				$data['message'] = true;
-				//redirect('index/user', 'refresh');
 			}
 		}else{
 			$data['message'] = false;
@@ -369,6 +395,67 @@ class Index extends CI_Controller {
 		$this->load->view('index/images',$data);
 	}
 	//
+	function send_email($data=null, $type=null) {
+
+		$from_email = "info@cedipcentromedico.com";
+		$to_email = $data['email'];
+		
+		$config = array();
+		$config['protocol'] = 'smtp';
+		$config['smtp_host'] = 'a2plcpnl0717.prod.iad2.secureserver.net';
+		$config['smtp_crypto'] = 'ssl';
+		$config['smtp_user'] = 'info@cedipcentromedico.com';
+		$config['smtp_pass'] = 'FA%MT/4o2';
+		$config['smtp_port'] = '465';
+		$config['mailtype'] = 'html';
+		$config['wordwrap'] = TRUE;
+		$config['charset'] = 'utf-8';
+		//
+		$asunto_email = '';
+		if ($type === 'registro'){
+			$msg = $this->load->view('email/email_registro',$data,true);
+			$asunto_email = 'Registro de Usuario';
+		}
+		elseif($type === 'recuperar'){
+			$msg = $this->load->view('email/email_recuperar',$data,true);
+			$asunto_email = 'Recuperación de Contraseña';
+		}elseif($type === 'cambio'){
+			$msg = $this->load->view('email/email_cambio_email',$data,true);
+			$asunto_email = 'Cambio de Correo Electronico';
+		}
+		
+		//Load email library
+		$this->load->library('email');
+		$this->load->library('session');
+
+		$this->email->initialize($config);
+		$this->email->set_newline("\r\n");
+
+		$this->email->from($from_email, $asunto_email);
+		$this->email->to($to_email);
+		$this->email->subject('Cedip Centro Médico');
+		$this->email->message($msg);
+		$this->email->set_newline("\r\n");
+		//Send mail
+		//$this->email->send();
+
+		if($this->email->send()){
+			//$this->session->set_flashdata("email_sent","Congragulation Email Send Successfully.");
+			return true;
+		}
+		else{
+			//var_dump($this->email->print_debugger());
+			//$this->session->set_flashdata("email_sent","You have encountered an error");
+			return false;
+		}
+	}
+	//
+	function preview($data=null){
+		//redirect('producto/search','refresh');
+		$data_email['dni'] = 'test';
+		$data_email['password'] = 1;
+		$this->load->view('email/email_recuperar',$data_email);
+	}
 	// Reglas para formularios
 	private $rules_user = array(
 		'nombre' => array(
