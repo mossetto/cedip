@@ -266,14 +266,40 @@ class Super_Controller extends CI_Controller{
 				$crud->set_relation('usuario','usuarios_sistema_empleados','descripcion');
 				$crud->required_fields('dni','nombre','apellido','correo','pass_web', 'telefono','celular','direccion','localidad','cod_obra_social', 'fecha_ingresado', 'usuario', 'estado');
 				$crud->columns('dni','nombre','apellido','correo', 'pass_web','telefono','celular','direccion','localidad','cod_obra_social','estado');
+
+				$crud->callback_after_insert(function ($post_array,$primary_key) {
+
+					return false;
+					//$post_array['date_edition']=date("Y-m-d H:i:s");
+					//$post_array['editeur']=$this->session->username;
+					//return var_dump($post_array);
+					
+				});
+
+				$crud->callback_after_update(function ($post_array,$primary_key) {
+
+					return false;
+					//$post_array['date_edition']=date("Y-m-d H:i:s");
+					//$post_array['editeur']=$this->session->username;
+					//return var_dump($post_array);
+					
+				});
+
+
+
+
 				$output = $crud->render();
+
 				$imagen=base_url()."recursos/img/empleados/".$this->session->userdata('imagen');
+
 				$dni=$this->session->userdata('dni');
 				$nombre=$this->session->userdata('nombre');
 				$apellido=$this->session->userdata('apellido');
 				$vista["menu"] = $this->pagina->get_menu($imagen, $dni, $nombre, $apellido);
 				$vista["cabecera"] = $this->pagina->get_cabecera($imagen, $dni, $nombre, $apellido);
 				$vista["seccion"] = "Pacientes";
+
+				//var_dump($output);
 				$this->load->view('administrador/cabecera.php',$vista);
 				$this->load->view('administrador/detalle.php',$output);
 				$this->load->view('administrador/pie.php', $output);
@@ -281,7 +307,6 @@ class Super_Controller extends CI_Controller{
 			}catch(Exception $e){
 				show_error($e->getMessage().' --- '.$e->getTraceAsString());
 			}
-
 		}else{
 			redirect("acceso");
 		}
@@ -2096,6 +2121,8 @@ class Super_Controller extends CI_Controller{
 		
 			if ((($this->session->userdata("tipo_usuario") == "1"  || $this->session->userdata("tipo_usuario") == "2" || $this->session->userdata("tipo_usuario") == "3" || $this->session->userdata("tipo_usuario") == "4") && $this->session->userdata("operativo") == "si")) 
 			{
+				//echo var_dump($this->input->post());
+
 
 				$this->load->model("Historias_Clinicas_model");
 				$this->load->model("Profesionales_model");
@@ -2173,6 +2200,9 @@ class Super_Controller extends CI_Controller{
 				{
 					redirect("secretaria/abm_historias_clinicas");
 				}
+
+
+				/**/
 			}
 			else
 			{
