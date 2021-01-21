@@ -266,14 +266,24 @@ class Super_Controller extends CI_Controller{
 				$crud->set_relation('usuario','usuarios_sistema_empleados','descripcion');
 				$crud->required_fields('dni','nombre','apellido','correo','pass_web', 'telefono','celular','direccion','localidad','cod_obra_social', 'fecha_ingresado', 'usuario', 'estado');
 				$crud->columns('dni','nombre','apellido','correo', 'pass_web','telefono','celular','direccion','localidad','cod_obra_social','estado');
+
+				$crud->callback_after_insert(array($this,'_callback_after_insert'));				
+				$crud->callback_after_update(array($this,'_callback_after_update'));
+
+
+
 				$output = $crud->render();
+
 				$imagen=base_url()."recursos/img/empleados/".$this->session->userdata('imagen');
+
 				$dni=$this->session->userdata('dni');
 				$nombre=$this->session->userdata('nombre');
 				$apellido=$this->session->userdata('apellido');
 				$vista["menu"] = $this->pagina->get_menu($imagen, $dni, $nombre, $apellido);
 				$vista["cabecera"] = $this->pagina->get_cabecera($imagen, $dni, $nombre, $apellido);
 				$vista["seccion"] = "Pacientes";
+
+				//var_dump($output);
 				$this->load->view('administrador/cabecera.php',$vista);
 				$this->load->view('administrador/detalle.php',$output);
 				$this->load->view('administrador/pie.php', $output);
@@ -281,9 +291,96 @@ class Super_Controller extends CI_Controller{
 			}catch(Exception $e){
 				show_error($e->getMessage().' --- '.$e->getTraceAsString());
 			}
-
 		}else{
 			redirect("acceso");
+		}
+	}
+
+	public function _callback_after_insert($post_array, $primary_key) {
+		$data = 
+		'{
+			"CcoCodigo":"1",
+			"PerRazonSocial":"'.$this->input->post('nombre') . ' ' . $this->input->post('apellido').'",
+			"PerNombreComercial":"'.$this->input->post('nombre') . ' ' . $this->input->post('apellido').'",
+			"TdoCodigo":"7",
+			"PerNroDocumento":"'.$this->input->post('dni').'",
+			"PerDomicilio":"'.$this->input->post('direccion').'",
+			"PerBarrio":"'.$this->input->post('localidad').'",
+			"PerMail":"'.$this->input->post('correo').'",
+			"CuePasswordWeb":"'.$this->input->post('pass_web').'",
+			"LprCodigo":null
+		}';
+
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => 'http://srvdotcstech.no-ip.org:2525/api/Clientes?pIdCuenta=1',
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => 'POST',
+			CURLOPT_POSTFIELDS => $data,
+			CURLOPT_HTTPHEADER => array(
+				'Authorization: server S3boe326uNTOla45HoyRo8ZpjwxpQgOy23FDHLXccAZIeo84YmuN7RgdOFSHUHHn',
+				'Content-Type: application/json'
+			),
+		));
+		$response = curl_exec($curl);
+		curl_close($curl);
+		//Update Pacientes Table
+		$response = json_decode($response, true);
+		$data_model = array(
+			'dni' => $this->input->post('dni'),
+			'per_codigo' => $response['PerCodigo'],
+			'cue_codigo' => $response['CueCodigo']
+		);
+		$this->load->model("Index_model");
+		$this->Index_model->updateApiPaciente($data_model);
+	}
+
+	public function _callback_after_update($post_array, $primary_key) {
+		$this->load->model("Pacientes_model");
+		$paciente = $this->Pacientes_model->getPaciente($this->input->post('dni'));
+
+		if(!is_null($paciente[0]['per_codigo']) && !is_null($paciente[0]['per_codigo'])){
+			$cue_codigo = $paciente[0]['cue_codigo'];
+			$per_codigo = $paciente[0]['per_codigo'];
+
+			$data =
+			'{
+				"CueCodigo":"'.$cue_codigo.'",
+				"CueActivo": true,
+				"CueActivoWeb": true,
+				"CuePasswordWeb":"'.$this->input->post('pass_web').'",
+				"PerCodigo":"'.$per_codigo.'",
+				"PerRazonSocial":"'.$this->input->post('nombre') . ' ' . $this->input->post('apellido').'",
+				"PerNombreComercial":"'.$this->input->post('nombre') . ' ' . $this->input->post('apellido').'",
+				"PerNroDocumento":"'.$this->input->post('dni').'",
+				"PerDomicilio":"'.$this->input->post('direccion').'",
+				"LprCodigo":null
+			}';
+
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+				CURLOPT_URL => 'http://srvdotcstech.no-ip.org:2525/api/Clientes?pIdCuenta=1',
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_ENCODING => '',
+				CURLOPT_MAXREDIRS => 10,
+				CURLOPT_TIMEOUT => 0,
+				CURLOPT_FOLLOWLOCATION => true,
+				CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				CURLOPT_CUSTOMREQUEST => 'PUT',
+				CURLOPT_POSTFIELDS => $data,
+				CURLOPT_HTTPHEADER => array(
+					'Authorization: server S3boe326uNTOla45HoyRo8ZpjwxpQgOy23FDHLXccAZIeo84YmuN7RgdOFSHUHHn',
+					'Content-Type: application/json'
+				),
+			));
+			$response = curl_exec($curl);
+			curl_close($curl);
 		}
 	}
 	
@@ -2096,6 +2193,8 @@ class Super_Controller extends CI_Controller{
 		
 			if ((($this->session->userdata("tipo_usuario") == "1"  || $this->session->userdata("tipo_usuario") == "2" || $this->session->userdata("tipo_usuario") == "3" || $this->session->userdata("tipo_usuario") == "4") && $this->session->userdata("operativo") == "si")) 
 			{
+				//echo var_dump($this->input->post());
+
 
 				$this->load->model("Historias_Clinicas_model");
 				$this->load->model("Profesionales_model");
@@ -2173,6 +2272,9 @@ class Super_Controller extends CI_Controller{
 				{
 					redirect("secretaria/abm_historias_clinicas");
 				}
+
+
+				/**/
 			}
 			else
 			{

@@ -945,5 +945,3 @@ class Administrador extends Super_Controller {
 		}
 	}
 }
-
-

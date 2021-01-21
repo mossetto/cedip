@@ -96,7 +96,7 @@ if (is_null($message) <> 1){
 		<div class="notificacion" id="notificación" onclick="cerrar(this)">
 			<h3><?= $message_title; ?></h3>
 			<p><?= $message_text; ?></p>
-			<button>Aceptar</button>
+			<button onclick="location.href='<?php echo base_url();?>index.php/index/login'">Aceptar</button>
 		</div>
 		<script>
 			function cerrar(notificacion){
