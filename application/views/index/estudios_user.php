@@ -165,7 +165,7 @@ $form_attributes = array(
 											<tr>
 												<th>Fecha</th>
 												<th>Profesional</th>
-												<th>Especialidad</th>
+												<th>Estudio</th>
 												<th>
 													<a class="waves-effect waves-dark">
 														<i class="mdi mdi-download"></i> 
