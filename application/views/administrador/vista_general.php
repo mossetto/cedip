@@ -414,13 +414,18 @@
 
     function eliminar_imagen_editar_historia(numero_imagen,nombre_imagen)
     {
-      if($("#btn_eliminar_"+numero_imagen).hasClass("btn-default"))
+      console.log(numero_imagen);
+      console.log(nombre_imagen);
+      //btn btn-danger boton-eliminar-img
+
+      if($("#btn_eliminar_"+numero_imagen).hasClass("btn-danger"))
       {
-        $("#btn_eliminar_"+numero_imagen).removeClass("btn-default");
-        $("#btn_eliminar_"+numero_imagen).addClass("btn-danger");
+        $("#btn_eliminar_"+numero_imagen).removeClass("btn-danger");
+        $("#btn_eliminar_"+numero_imagen).addClass("btn-default");
 
         imagenes_a_eliminar.push(nombre_imagen);
       }
+      /*
       else
       {
         $("#btn_eliminar_"+numero_imagen).addClass("btn-default");
@@ -433,6 +438,7 @@
           delete imagenes_a_eliminar[posicion];
         }
       }
+      */
     }
 
     function get_posicion_imagenes_a_eliminar(imagen_a_buscar)
@@ -493,7 +499,7 @@
 
       if(!extensiones)
       {
-        ext= ['jpg','jpeg'];
+        ext= ['jpg','jpeg','png'];
       }
       else
       {
@@ -1150,6 +1156,7 @@
     
     function actualizar_historia_clinica(codigo)
     {
+      alert("111");
         
         var observaciones = $("#observaciones_actualizar_historia_clinica").val();
         var imagen1 = $("#imagen1_actualizar_historia_clinica").val();

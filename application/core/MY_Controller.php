@@ -266,14 +266,24 @@ class Super_Controller extends CI_Controller{
 				$crud->set_relation('usuario','usuarios_sistema_empleados','descripcion');
 				$crud->required_fields('dni','nombre','apellido','correo','pass_web', 'telefono','celular','direccion','localidad','cod_obra_social', 'fecha_ingresado', 'usuario', 'estado');
 				$crud->columns('dni','nombre','apellido','correo', 'pass_web','telefono','celular','direccion','localidad','cod_obra_social','estado');
+
+				$crud->callback_after_insert(array($this,'_callback_after_insert'));				
+				$crud->callback_after_update(array($this,'_callback_after_update'));
+
+
+
 				$output = $crud->render();
+
 				$imagen=base_url()."recursos/img/empleados/".$this->session->userdata('imagen');
+
 				$dni=$this->session->userdata('dni');
 				$nombre=$this->session->userdata('nombre');
 				$apellido=$this->session->userdata('apellido');
 				$vista["menu"] = $this->pagina->get_menu($imagen, $dni, $nombre, $apellido);
 				$vista["cabecera"] = $this->pagina->get_cabecera($imagen, $dni, $nombre, $apellido);
 				$vista["seccion"] = "Pacientes";
+
+				//var_dump($output);
 				$this->load->view('administrador/cabecera.php',$vista);
 				$this->load->view('administrador/detalle.php',$output);
 				$this->load->view('administrador/pie.php', $output);
@@ -281,9 +291,96 @@ class Super_Controller extends CI_Controller{
 			}catch(Exception $e){
 				show_error($e->getMessage().' --- '.$e->getTraceAsString());
 			}
-
 		}else{
 			redirect("acceso");
+		}
+	}
+
+	public function _callback_after_insert($post_array, $primary_key) {
+		$data = 
+		'{
+			"CcoCodigo":"1",
+			"PerRazonSocial":"'.$this->input->post('nombre') . ' ' . $this->input->post('apellido').'",
+			"PerNombreComercial":"'.$this->input->post('nombre') . ' ' . $this->input->post('apellido').'",
+			"TdoCodigo":"7",
+			"PerNroDocumento":"'.$this->input->post('dni').'",
+			"PerDomicilio":"'.$this->input->post('direccion').'",
+			"PerBarrio":"'.$this->input->post('localidad').'",
+			"PerMail":"'.$this->input->post('correo').'",
+			"CuePasswordWeb":"'.$this->input->post('pass_web').'",
+			"LprCodigo":null
+		}';
+
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => 'http://srvdotcstech.no-ip.org:2525/api/Clientes?pIdCuenta=1',
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => 'POST',
+			CURLOPT_POSTFIELDS => $data,
+			CURLOPT_HTTPHEADER => array(
+				'Authorization: server S3boe326uNTOla45HoyRo8ZpjwxpQgOy23FDHLXccAZIeo84YmuN7RgdOFSHUHHn',
+				'Content-Type: application/json'
+			),
+		));
+		$response = curl_exec($curl);
+		curl_close($curl);
+		//Update Pacientes Table
+		$response = json_decode($response, true);
+		$data_model = array(
+			'dni' => $this->input->post('dni'),
+			'per_codigo' => $response['PerCodigo'],
+			'cue_codigo' => $response['CueCodigo']
+		);
+		$this->load->model("Index_model");
+		$this->Index_model->updateApiPaciente($data_model);
+	}
+
+	public function _callback_after_update($post_array, $primary_key) {
+		$this->load->model("Pacientes_model");
+		$paciente = $this->Pacientes_model->getPaciente($this->input->post('dni'));
+
+		if(!is_null($paciente[0]['per_codigo']) && !is_null($paciente[0]['per_codigo'])){
+			$cue_codigo = $paciente[0]['cue_codigo'];
+			$per_codigo = $paciente[0]['per_codigo'];
+
+			$data =
+			'{
+				"CueCodigo":"'.$cue_codigo.'",
+				"CueActivo": true,
+				"CueActivoWeb": true,
+				"CuePasswordWeb":"'.$this->input->post('pass_web').'",
+				"PerCodigo":"'.$per_codigo.'",
+				"PerRazonSocial":"'.$this->input->post('nombre') . ' ' . $this->input->post('apellido').'",
+				"PerNombreComercial":"'.$this->input->post('nombre') . ' ' . $this->input->post('apellido').'",
+				"PerNroDocumento":"'.$this->input->post('dni').'",
+				"PerDomicilio":"'.$this->input->post('direccion').'",
+				"LprCodigo":null
+			}';
+
+			$curl = curl_init();
+			curl_setopt_array($curl, array(
+				CURLOPT_URL => 'http://srvdotcstech.no-ip.org:2525/api/Clientes?pIdCuenta=1',
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_ENCODING => '',
+				CURLOPT_MAXREDIRS => 10,
+				CURLOPT_TIMEOUT => 0,
+				CURLOPT_FOLLOWLOCATION => true,
+				CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				CURLOPT_CUSTOMREQUEST => 'PUT',
+				CURLOPT_POSTFIELDS => $data,
+				CURLOPT_HTTPHEADER => array(
+					'Authorization: server S3boe326uNTOla45HoyRo8ZpjwxpQgOy23FDHLXccAZIeo84YmuN7RgdOFSHUHHn',
+					'Content-Type: application/json'
+				),
+			));
+			$response = curl_exec($curl);
+			curl_close($curl);
 		}
 	}
 	
@@ -794,9 +891,10 @@ class Super_Controller extends CI_Controller{
 				// SUBIDA DE IMAGEN
 				$imagen ="";
 				$config['upload_path'] = "./recursos/img/empleados/";
-				$config['allowed_types'] = "jpg";
+				$config['allowed_types'] = "jpg|jpeg|png";
+				$config ['max_size'] = '1000';
 
-					$this->load->library("upload",$config);
+				$this->load->library("upload",$config);
 
 				if($this->upload->do_upload("imagen")) // si se sube la imagen
 				{
@@ -2018,8 +2116,8 @@ class Super_Controller extends CI_Controller{
 	
 		// SUBIENDO LA IMAGEN ORIGINAL
 		$config_subida_principal['upload_path'] = "./recursos/img/temporales/";
-		$config_subida_principal['allowed_types']        = 'jpg|jpeg|JPEG|JPG';
-		$config_subida_principal['max_size']             = 5000;
+		$config_subida_principal['allowed_types']        = 'jpg|jpeg|JPEG|JPG|png';
+		$config_subida_principal['max_size']             = 1024;
 		$config_subida_principal['max_width']            = 5000;
 		$config_subida_principal['max_height']           = 5000;
 		$config_subida_principal["overwrite"]=false;
@@ -2030,9 +2128,8 @@ class Super_Controller extends CI_Controller{
 
 		if ( ! $this->upload->do_upload($name_post))
 		{
-			$respuesta["respuesta"]=false;
-			//echo $this->upload->display_errors();
-
+			$respuesta["respuesta"] = false;
+			$respuesta["error"] = $this->upload->display_errors();
 		}
 		else
 		{
@@ -2089,12 +2186,16 @@ class Super_Controller extends CI_Controller{
 	}
 
 	public function actualizar_historia_clinica()
-	{ 
+	{
+
 		if($this->input->post())
 		{
+		
 			if ((($this->session->userdata("tipo_usuario") == "1"  || $this->session->userdata("tipo_usuario") == "2" || $this->session->userdata("tipo_usuario") == "3" || $this->session->userdata("tipo_usuario") == "4") && $this->session->userdata("operativo") == "si")) 
 			{
-				
+				//echo var_dump($this->input->post());
+
+
 				$this->load->model("Historias_Clinicas_model");
 				$this->load->model("Profesionales_model");
 				$this->load->model("Especialidades_model");
@@ -2107,7 +2208,7 @@ class Super_Controller extends CI_Controller{
 				$historia_clinica = $this->Historias_Clinicas_model->getHistoriaClinica($codigo);
 				
 				// SUBIDA DE IMAGEN
-				$imagenes_a_eliminar =json_decode($this->input->post("imagenes_a_eliminar_historia"),true);
+				$imagenes_a_eliminar = json_decode($this->input->post("imagenes_a_eliminar_historia"),true);
 
 				
 				$imagenes_actuales = unserialize($historia_clinica[0]["imagenes"]);
@@ -2141,18 +2242,20 @@ class Super_Controller extends CI_Controller{
 
 				for($i=1; $i <= count($_FILES);$i++)
 				{
+
 					$respuesta = $this->subir_imagen_historia_clinica("imagen".$i);
-					//var_dump($respuesta);
+
 
 					if($respuesta["respuesta"]) // si se sube la imagen
 					{
-					   $imagenes_actuales[] = $respuesta["nombre_imagen"];
+						$imagenes_actuales[] = $respuesta["nombre_imagen"];
+					}else{
+						//MOSTRAR ERROR $respuesta["error"];
 					}
-
-
 				}
+
 				// fin subida de imagen
-			
+
 				$examen = $this->input->post("examen_editar_historia_clinica");
 				$conclusion = $this->input->post("conclusion_editar_historia_clinica");
 				$fecha = $this->input->post("fecha_editar_historia_clinica");
@@ -2169,12 +2272,15 @@ class Super_Controller extends CI_Controller{
 				{
 					redirect("secretaria/abm_historias_clinicas");
 				}
-				/*	*/
+
+
+				/**/
 			}
 			else
 			{
 				redirect("acceso");
 			}
+
 		}
 		else
 		{

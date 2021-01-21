@@ -45,4 +45,14 @@ class Index_model extends CI_Model{
 		//echo $this->db->last_query();
 		return $query;
 	}
+	//
+	function updateApiPaciente($data){
+		$data_model = array(
+			'per_codigo' => $data['per_codigo'],
+			'cue_codigo' => $data['cue_codigo']
+		);
+		$this->db->where('dni',$data['dni']);
+		$query=$this->db->update('pacientes',$data_model);
+		return $query;
+	}
 }

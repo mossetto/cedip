@@ -3,18 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $form = array(
 	'dni' => array(
+		'type'  => 'text',
 		'class' => 'input100',
 		'name' => 'dni',
-		'placeholder' => 'D.N.I. del titular',
 		'value' => null,
+		'placeholder' => 'D.N.I. del titular',
 		'required' => true
 	),
 	'email' => array(
 		'type'  => 'email',
 		'class' => 'input100',
 		'name' => 'email',
-		'placeholder' => 'Email registrado',
 		'value' => null,
+		'placeholder' => 'Email registrado',
 		'required' => true
 	)
 );
@@ -69,9 +70,9 @@ if (is_null($message) <> 1){
 ?>
 		<!-- Notificacion -->
 		<div class="notificacion" id="notificación" onclick="cerrar(this)">
-			<h3>Te enviamos un email</h3>
-			<p>Enviamos un email de recuperación, revisalo para recuperar la contraseña. Gracias</p>
-			<button>Aceptar</button>
+			<h3><?= $titulo_ventana; ?></h3>
+			<p><?= $mensaje_ventana; ?></p>
+			<button onclick="location.href='<?php echo base_url();?>index.php/index/login'">Aceptar</button>
 		</div>
 		<script>
 			function cerrar(notificacion){
@@ -119,7 +120,7 @@ if (is_null($message) <> 1){
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
+							<button type="submit" class="login100-form-btn">
 								<b>RECUPERAR</b>
 							</button>
 						</div>
