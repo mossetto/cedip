@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
+//$config['base_url'] = 'http://cedipcentromedico.com/';
 $config['base_url'] = 'http://localhost/cedip/';
-//$config['base_url'] = 'http://dev.emiliograterol.com/';
 
 /*
 |--------------------------------------------------------------------------

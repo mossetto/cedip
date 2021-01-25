@@ -3438,18 +3438,14 @@ class Pagina implements Pagina_interface
           
                     $imagenes = unserialize($historia[0]["imagenes"]);
 
-                    //var_dump($imagenes);
-                    //var_dump($historia[0]["imagenes"]);
-                    //(is_countable($admin)?$admin:[])
-
-                     for($i=0; $i < count((is_countable($imagenes)?$imagenes:[])); $i++)
-                     //for($i=0; $i < count($imagenes); $i++)
-                     {
+                    if (is_array($imagenes) || $foo instanceof Countable) {
+                     for($i=0; $i < count((is_countable($imagenes)?$imagenes:[])); $i++) {
                          if(getimagesize(base_url()."recursos/img/pacientes/".$imagenes[$i]))
                          {
                              $html.="<img src='".base_url()."recursos/img/pacientes/".$imagenes[$i]."' width='100' height='100' style='margin-right: 10px;margin-top: 10px;' onClick='carga_imagen(&#34;".base_url()."recursos/img/pacientes/".$imagenes[$i]."&#34;)'/>";
                          }
                      }
+                    }
             $html.="</div>
                     <div>
                         <img class='col-md-6' id='visor_imagenes' src='' width='400' style='margin-top: 20px;' data-imagezoom='true' alt=''/>

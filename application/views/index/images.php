@@ -50,10 +50,10 @@ function getFileName(str) {
 				<button class="btn btn-primary mb-3 btn-volver"><a href="<?= base_url(); ?>index.php/index/estudios">Volver</a></button>
 			</div>
 <?php
-
-					 for($i=0; $i < count((is_countable($imagenes)?$imagenes:[])); $i++){
-						 if(getimagesize(base_url()."recursos/img/pacientes/".$imagenes[$i]))
-						 {
+	//var_dump($imagenes);
+	if(is_array($imagenes)){
+		for($i=0; $i < count((is_countable($imagenes)?$imagenes:[])); $i++){
+			if(getimagesize(base_url()."recursos/img/pacientes/".$imagenes[$i])) {
 ?>
 
 			<!-- inicio item -->
@@ -70,8 +70,9 @@ function getFileName(str) {
 			</div>
 			<!-- fin item -->
 <?php
-						 }
-					 }
+			}
+		}
+	}
 ?>
 <!--
 			<div class="col-12 d-flex flex-column mb-3">

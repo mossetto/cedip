@@ -2,6 +2,14 @@
 define('PATH_ONEPAGE','assets/onepage/assets_home');
 define('PATH_LOGIN','assets/login-user/assets_login');
 define('PATH_PANEL','assets/panel-user/assets_user_panel');
+
+if (!function_exists('is_countable')) {
+
+    function is_countable($c) {
+        return is_array($c) || $c instanceof Countable;
+    }
+
+}
 /**
  * CodeIgniter
  *
@@ -56,8 +64,8 @@ define('PATH_PANEL','assets/panel-user/assets_user_panel');
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	//define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'production');
+	//define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 /*
  *---------------------------------------------------------------
