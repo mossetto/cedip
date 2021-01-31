@@ -275,7 +275,7 @@
 
                 },
                 error: function(event){
-                    alert("ERROR");
+                    //alert("ERROR");
                     location.href="<?php echo base_url()?>index.php/Administrador/cobrar_turnos/"+turno;
                 }
             });
@@ -308,7 +308,7 @@
 
                     },
                     error: function(event){
-                        alert("ERROR");
+                        //alert("ERROR");
                     }
                 });
             }
@@ -332,7 +332,7 @@
 
                     },
                     error: function(event){
-                        alert("ERROR");
+                        //alert("ERROR");
                     }
                 });
             }

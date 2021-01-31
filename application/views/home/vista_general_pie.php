@@ -316,7 +316,7 @@
                             
                         },
                         error: function(event){
-                            alert("ERROR");
+                            //alert("ERROR");
                         },
                     });
             
@@ -352,7 +352,7 @@
                             
                         },
                         error: function(event){
-                            alert("ERROR");
+                            //alert("ERROR");
                         },
                     });
         }

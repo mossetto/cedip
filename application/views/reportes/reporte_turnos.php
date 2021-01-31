@@ -218,7 +218,7 @@
 
                     },
                     error: function(event){
-                        alert("ERROR");
+                        //alert("ERROR");
                     }
                 });
             }

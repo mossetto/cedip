@@ -302,7 +302,7 @@ class Super_Controller extends CI_Controller{
 			"CcoCodigo":"1",
 			"PerRazonSocial":"'.$this->input->post('nombre') . ' ' . $this->input->post('apellido').'",
 			"PerNombreComercial":"'.$this->input->post('nombre') . ' ' . $this->input->post('apellido').'",
-			"TdoCodigo":"7",
+			"TdoCodigo":"5",
 			"PerNroDocumento":"'.$this->input->post('dni').'",
 			"PerDomicilio":"'.$this->input->post('direccion').'",
 			"PerBarrio":"'.$this->input->post('localidad').'",
@@ -314,7 +314,7 @@ class Super_Controller extends CI_Controller{
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
-			CURLOPT_URL => 'http://srvdotcstech.no-ip.org:2525/api/Clientes?pIdCuenta=1',
+			CURLOPT_URL => 'http://srvdotcstech.no-ip.org:2525/api/Clientes?pIdCuenta=11',
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_ENCODING => '',
 			CURLOPT_MAXREDIRS => 10,
@@ -365,7 +365,7 @@ class Super_Controller extends CI_Controller{
 
 			$curl = curl_init();
 			curl_setopt_array($curl, array(
-				CURLOPT_URL => 'http://srvdotcstech.no-ip.org:2525/api/Clientes?pIdCuenta=1',
+				CURLOPT_URL => 'http://srvdotcstech.no-ip.org:2525/api/Clientes?pIdCuenta=11',
 				CURLOPT_RETURNTRANSFER => true,
 				CURLOPT_ENCODING => '',
 				CURLOPT_MAXREDIRS => 10,

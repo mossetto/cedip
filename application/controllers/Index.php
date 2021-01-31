@@ -329,13 +329,13 @@ class Index extends CI_Controller {
 				$prov = $fila['p.provincia'];
 			}*/
 			//preparamos y maquetamos el contenido a crear
-			$html = "<div>";
+			$html = "<div><basefont face = 'arial, verdana, sans-serif, helvetica'>";
 			$html .= "<p><b>Nombre: </b> $paciente</p>
 					  <p><b>Medico Solicitante: </b> ".$historia_clinica[0]["medico"]."</p>
 					  <p><b>Fecha: </b>".$fecha->format('d-m-Y')."</p>
 					  <p><b>Obra social: </b>".$obra_social["razon_social"]."</p>
 					  <p><b>Especialidad: </b>".$especialidad["especialidad"]."</p>
-					  <p style='margin-top: 10px;'><b>Examen: </b></p><p style='background-color:powderblue;margin-left: 10px !important;'>".trim($historia_clinica[0]["examen"])."</p>
+					  <p style='margin-top: 10px;'><b>Examen: </b></p><p style='background-color:powderblue;margin-left: 10px !important;font-family: helvetica;'><pre style=''>".trim($historia_clinica[0]["examen"])."</pre></p>
 
 
 
