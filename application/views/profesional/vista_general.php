@@ -828,7 +828,9 @@
                $("#modal").modal("show");
                
            },
-           error: function(event){//alert("ERROR");},
+           error: function(event){
+           //alert("ERROR");
+         },
        });
         
     }
@@ -1472,7 +1474,9 @@
                    }
 
                },
-               error: function(event){//alert("ERROR");},
+               error: function(event){
+                //alert("ERROR");
+              },
            }); 
     }
     
@@ -1596,7 +1600,9 @@
                      $("#modal").modal("show");
 
                  },
-                 error: function(event){//alert("ERROR");},
+                 error: function(event){
+                  //alert("ERROR");
+                },
              });   
           }
           else if(tipo_comp == 5)
@@ -1615,7 +1621,9 @@
                      $("#modal").modal("show");
 
                  },
-                 error: function(event){//alert("ERROR");},
+                 error: function(event){
+                  //alert("ERROR");
+                },
              });   
           }
         }
@@ -1754,7 +1762,9 @@
               $("#cuerpo-modal").html(data);
               $("#modal").modal("show");
           },
-          error: function (event){//alert("ERROR");},
+          error: function (event){
+            //alert("ERROR");
+          },
 
         });  
     }
@@ -1771,7 +1781,9 @@
               $("#cuerpo-modal").html(data);
               $("#modal").modal("show");
           },
-          error: function (event){//alert("ERROR");},
+          error: function (event){
+            //alert("ERROR");
+          },
 
         }); 
     }
@@ -1804,7 +1816,9 @@
                   alert("NO TIENE IMAGENES");
               }
           },
-          error: function (event){//alert("ERROR");},
+          error: function (event){
+            //alert("ERROR");
+            },
 
         });  */
     }
@@ -1988,7 +2002,9 @@
               $("#tabla_historial_turnos_paciente").DataTable();
               $("#modal").modal("show");
           },
-          error: function (event){//alert("ERROR");},
+          error: function (event){
+            //alert("ERROR");
+          },
 
         }); 
     }
